@@ -1,0 +1,128 @@
+<style>
+  .icon{ font-size:23px; color:grey}
+  #ann_box{diaplay:block;font-size:13px; border:none; background-color:bisque; padding:4px;
+            width:95%; border-radius:0 0 6px 6px ;
+    transform: rotate(-45deg);}
+  #red{color:white; font-size:13px;height:20px; background-color:red; width:95%;
+            border-radius:6px 6px 0 0; margin-top:10px; padding:1px; letter-spacing:0.1em;}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 14px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.tb{border:1px solid lightgrey; text-align: center; font-size:small; padding:3px}
+</style>
+
+  <div class="container my-3">
+    <h5 style="display:inline-block">My Dashboard</h5>
+    
+  {% include 'cap/nav/menu.html' %}
+</div>
+  {% include 'cap/nav/slide.html' %}
+  
+<center>
+  <span style="font-size:10px; color: grey;">
+      You wallets will be listed here
+  </span>
+</center>
+{% if ann %}
+  {% for an in ann %}
+<center class="mt-2">
+  <div id="red">
+    NOTICE!!!
+  </div>
+<div id="ann_box" class="mb-2">
+      {{an.body}}
+    </div>
+</center>
+{% endfor %}
+{% endif %}
+
+<div style="background-color:whitesmoke; border-none; padding:5%">
+  <center class="my-2 mt-1" style="width:100%; background-color: white;padding: 5%;">
+    <h5>Commission</h5>
+    <h5 style="color:orange">$0.00</h5>
+  </center>
+  <center class="my-2 mt-1" style="width:100%; background-color: white;padding: 5%;">
+    <h5>Withdraw</h5>
+    <h5 style="color:red">$0.00</h5>
+  </center>
+  <center class="my-2 mt-1" style="width:100%; background-color: white;padding:5%;">
+    <h5>My balance</h5>
+    <h5 style="color:green">${{ request.user.profile.balance }}</h5>
+  </center>
+  <div class="my-3" style="width:100%; background-color: white;padding:1%;">
+    <div>
+    <small style="color:grey">Personal Information</small>
+    <hr>
+    <center>
+    <table style="border:1px solid grey; width:80%" class="mb-2">
+    <thead>
+      <tr>
+        <th class="tb">Info</th>
+        <th class="tb">Details</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td class="tb">First name</td>
+      <td class="tb">Micheal</td>
+    </tr>
+    <tr>
+      <td class="tb">Last Name</td>
+      <td class="tb">Damian</td>
+    </tr>
+    <tr>
+      <td class="tb">Email Address</td>
+      <td class="tb">{{ request.user.email }}</td>
+    </tr>
+    <tr>
+      <td class="tb">Your Balannce</td>
+      <td class="tb">${{ request.user.profile.balance }}</td>
+    </tr>
+  </tbody>
+    </table>
+  </center></div>
+</div>
+</div>
+<div class="container mt-3">
+  {% include 'cap/includes/plans.html' %}<br>
+  
+</div>
+{% include 'cap/navicons/dash_active.html' %}
+<div class="mb-5">
+{% include 'cap/includes/small_foot.html' %}
+</div>

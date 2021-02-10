@@ -1,0 +1,22 @@
+<style>
+
+.titbox{width:100px; border: none; height:100px;  display:inline-block; background-color:whitesmoke;
+            border-radius:50%; text-align:center; font-size:12px; margin:4px 3px 3px 3px; padding-top:22px;
+         box-shadow:3px 3px 3px grey; margin-right:10px;}
+         
+
+            </style>
+{% include 'cap/nav/nav.html' %}
+<div class="container my-3">
+  <h5 style="display:inline-block">Trade</h5>
+  
+  {% include 'cap/nav/menu.html' %}
+
+</div>
+{% if user.is_authenticated %}
+{% include 'cap/includes/cashbar.html' %}
+    {% endif %}
+    {% include 'cap/includes/cryptos.html' %}
+
+
+{% include 'cap/navicons/trade_active.html' %}

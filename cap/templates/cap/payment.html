@@ -1,0 +1,136 @@
+<style>
+
+    .titbox{width:100px; border: none; height:100px;  display:inline-block; background-color:whitesmoke;
+                border-radius:50%; text-align:center; font-size:12px; margin:4px 3px 3px 3px; padding-top:22px;
+             box-shadow:3px 3px 3px grey; margin-right:10px;}
+    .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fa-arrow-right{color:green}
+                </style>
+{% load static %}
+    {% include 'cap/nav/nav.html' %}
+    
+<div class="container my-3">
+  <h5 style="display:inline-block">Deposit</h5>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  
+  <span style="cursor:pointer" onclick="openNav()">
+     
+  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+     viewBox="0 0 384.97 384.97" style="enable-background:new 0 0 384.97 384.97; width:30px; float:right" xml:space="preserve">
+  <g>
+    <g id="Menu_1_">
+      <path d="M12.03,120.303h360.909c6.641,0,12.03-5.39,12.03-12.03c0-6.641-5.39-12.03-12.03-12.03H12.03
+        c-6.641,0-12.03,5.39-12.03,12.03C0,114.913,5.39,120.303,12.03,120.303z"/>
+      <path d="M372.939,180.455H12.03c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h360.909c6.641,0,12.03-5.39,12.03-12.03
+        S379.58,180.455,372.939,180.455z"/>
+      <path d="M372.939,264.667H132.333c-6.641,0-12.03,5.39-12.03,12.03c0,6.641,5.39,12.03,12.03,12.03h240.606
+        c6.641,0,12.03-5.39,12.03-12.03C384.97,270.056,379.58,264.667,372.939,264.667z"/>
+    </g>
+    
+  </svg></span>
+  
+  <script>
+    function openNav() {
+      document.getElementById("mySidenav").style.width = "200px";
+      document.getElementById("main").style.marginLeft = "250px";
+      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+    }
+  function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+  }
+  </script>
+  
+
+</div>
+{% if user.is_authenticated %}
+{% include 'cap/includes/cashbar.html' %}
+    {% endif %}
+
+    <div class="container pt-2">
+       <div class="my-3">
+    <small style="color:red" class="mt-3">
+       <b>INSTRUCTIONS TO DEPOSIT INTO YOUR WALLET</b>
+    </small>
+    </div>
+    <span style="font-size:13px;">
+        <i class="fa fa-arrow-right green mr-2"></i>Copy the wallet address below<br>
+        <center class="my-1">
+         <input value=bc1qdj6entd3p52sf57343tq2ft5wge076fnj5vfen    
+         id="myInput" style="width:88%" disabled>
+      <button class="btn btn-sm btn-secondary my-1" onclick="myFunction()" style="font-size: 12px;">Copy</button></center>
+      <script>
+        function myFunction() {
+  /* Get the text field */
+  var copyText = document.getElementById("myInput");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /* For mobile devices */
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied");
+}
+      </script>
+     
+        <i class="fa fa-arrow-right green mr-2"></i>Click the link below to go to coinmama<br>
+        <i class="fa fa-arrow-right green mr-2"></i>Click the navigation bar and select buy<br>
+        <center>
+        <img  class="my-2 text-center" style="height:33%;" id="inpic" src="{% static 'capping/mamas.jpg' %}">
+      </center><br>
+        <i class="fa fa-arrow-right green mr-2"></i>Paste the wallet address in the form provided<br>
+    </span></div>
+    <center>   <br>
+       <small style="color:grey; font-size: 11px;">
+      Your balance will be automatically updated upon payment confirmation
+      </small><br>
+      <a href="http://www.coinmama.com" target="blank">
+       <button class="btn btn-md btn-info my-4">
+          GO TO COIN MAMA
+       </button></a>
+    </center>

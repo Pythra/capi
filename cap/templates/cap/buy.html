@@ -1,0 +1,44 @@
+{% include 'cap/nav/nav.html' %}
+<style>
+    .set{ display:block; color:black;important}
+</style>
+<div class="container my-3">
+  <h5 style="display:inline-block">Purchase </h5>
+    {% include 'cap/nav/menu.html' %}
+  
+  </div>
+  {% if user.is_authenticated %}
+  {% include 'cap/includes/cashbar.html' %}
+      {% endif %}
+  
+</div>
+{% if cash > bal %}
+
+<center style="border:3px dashed red; padding:7px; margin: 8%; font-size:14px">
+
+    <h4>Insufficient Funds</h4>
+    <a href="{% url 'payment' %}" class="btn btn-dark btn-sm my-3">Deposit to your account</a>
+</center> 
+
+{% else %}
+<center class="pt-3"  style="border:3px dashed black; padding:7px; margin: 8%; font-size:14px">
+
+    <h6>{{name|capfirst}} Purchase Confirmation</h6><hr>
+    <em>You are buying</em><br><h5>${{cash}}</h5>
+    <em>worth of</em><br>
+    <h5>{{ name| upper }}</h5>
+    <em>which is</em><br>
+    <h5 style="display: inline-block;">{{ buy | floatformat:4  }}</h5><small><b>{{ sym }}</b></small><br>
+    <form  method="POST" class="form-group" style="font-size:14px" action="{% url 'wallets' %}"> 
+      {% csrf_token %}
+      <input value="{{ price }}" name="price" hidden>
+      <input value="{{ name }}" name="name" hidden>
+      <input value="{{ cash }}" name="cash" hidden>
+      <input value="{{ buy }}" name="buy" hidden>
+      <input value="{{ sym }}" name="sym" hidden>
+    
+      <button class="btn btn-warning text-dark btn-sm my-2"><b>Confirm</b></button>
+      
+    </form>
+</center> 
+{% endif %}
