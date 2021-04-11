@@ -51,6 +51,8 @@
     
   {% include 'cap/nav/menu.html' %}
 </div>
+<small class="ml-1" style="font-size: 11px; color:grey; font-family: 'ubuntu-light';">
+   Click on the cryptocurrency you would like to purchase</small>
   {% include 'cap/nav/slide.html' %}
   
 <center>
@@ -114,7 +116,7 @@
       <td class="tb">{{ request.user.email }}</td>
     </tr>
     <tr>
-      <td class="tb">Your Balannce</td>
+      <td class="tb">Your Balance</td>
       <td class="tb">${{ request.user.profile.balance }}</td>
     </tr>
   </tbody>

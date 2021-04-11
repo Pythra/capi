@@ -1,12 +1,12 @@
 {% extends 'cap/base.html' %}
 {% block title %}
 #loginbox{width:85%; border:1px solid whitesmoke;
-                        padding:10px; box-shadow: 3px 5px 7px grey; border-radius:12px;}
+                        padding:17px 11px 14px 11px; box-shadow: 3px 5px 7px grey; border-radius:12px;}
 
-#login{border:none; border-radius:10px;background-color:whitesmoke; padding:6px;;}
+#login{border:none; border-radius:7px;background-color:whitesmoke; padding:6px;;}
   #milklogin{ font-weight:600}
-#logbtn{border:2px solid black; font-weight:bold}
-#logbtn:focus{border:2px solid purple; color:white; font-weight:bold; background-color:purple;}
+#logbtn{border:2px solid green; font-weight:bold}
+#logbtn:focus{border:2px solid green; color:white; font-weight:bold; background-color:green;}
 {% endblock %}
 {% block content %}
 {% if form.errors %}
@@ -22,16 +22,23 @@
     <input type="text" name="{{ form.email.html_name }}" placeholder="{{ form.email.html_name }}" id="login" class="mt-4 w-100">
     <input type="password" name="{{ form.password1.html_name }}" placeholder="password" 
     id="login" class="mt-4 w-100">
-    <small style="font-size: 10px;color: grey;">Your password must be up to 8 characters and must contain letters</small>
+    <small style="font-size: 10px;color: grey; display: block; line-spacing:1.3em">
+      Your password must be up to 8 characters and must contain letters.
+    </small>
     <input type="password" name="{{ form.password2.html_name }}" placeholder="confirm password" id="login" class="mt-4 w-100">
   <div class="text-center mt-3">
    <a href="{% url 'signup' %}">
-       <button type="submit" class="btn btn-sm btn-danger w-100 " style=" border-radius:30px;">sign up</button>
+       <button type="submit" class="btn btn-sm btn-dark text-warning w-100 " style=" border-radius:30px;">
+        <b>sign up</b>
+      </button>
    </a>
  </div>
 </form>
     <br>
             <a href="{% url 'login'%}?next={{ request.path}}" >
+              <small style="font-size: 10px;color: grey; display: block; line-spacing:1.3em;">
+                Already have an account?
+              </small>
      <input type="submit" class="btn btn-sm w-100 mb-1" id="logbtn" value="Login">
             </a>
    <input type="hidden" name="next" value="{{ next }}">

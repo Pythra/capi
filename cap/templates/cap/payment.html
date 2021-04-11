@@ -48,47 +48,11 @@
     
 <div class="container my-3">
   <h5 style="display:inline-block">Deposit</h5>
-  <div id="mySidenav" class="sidenav">
-    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-    <a href="#">About</a>
-    <a href="#">Services</a>
-    <a href="#">Clients</a>
-    <a href="#">Contact</a>
-  </div>
-  
-  <span style="cursor:pointer" onclick="openNav()">
-     
-  <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-     viewBox="0 0 384.97 384.97" style="enable-background:new 0 0 384.97 384.97; width:30px; float:right" xml:space="preserve">
-  <g>
-    <g id="Menu_1_">
-      <path d="M12.03,120.303h360.909c6.641,0,12.03-5.39,12.03-12.03c0-6.641-5.39-12.03-12.03-12.03H12.03
-        c-6.641,0-12.03,5.39-12.03,12.03C0,114.913,5.39,120.303,12.03,120.303z"/>
-      <path d="M372.939,180.455H12.03c-6.641,0-12.03,5.39-12.03,12.03s5.39,12.03,12.03,12.03h360.909c6.641,0,12.03-5.39,12.03-12.03
-        S379.58,180.455,372.939,180.455z"/>
-      <path d="M372.939,264.667H132.333c-6.641,0-12.03,5.39-12.03,12.03c0,6.641,5.39,12.03,12.03,12.03h240.606
-        c6.641,0,12.03-5.39,12.03-12.03C384.97,270.056,379.58,264.667,372.939,264.667z"/>
-    </g>
-    
-  </svg></span>
-  
-  <script>
-    function openNav() {
-      document.getElementById("mySidenav").style.width = "200px";
-      document.getElementById("main").style.marginLeft = "250px";
-      document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
-    }
-  function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-  }
-  </script>
+  {% include 'cap/nav/menu.html' %}
   
 
 </div>
-{% if user.is_authenticated %}
 {% include 'cap/includes/cashbar.html' %}
-    {% endif %}
-
     <div class="container pt-2">
        <div class="my-3">
     <small style="color:red" class="mt-3">
@@ -129,7 +93,7 @@
        <small style="color:grey; font-size: 11px;">
       Your balance will be automatically updated upon payment confirmation
       </small><br>
-      <a href="http://www.coinmama.com" target="blank">
+      <a href="https://www.coinmama.com" target="blank">
        <button class="btn btn-md btn-info my-4">
           GO TO COIN MAMA
        </button></a>
