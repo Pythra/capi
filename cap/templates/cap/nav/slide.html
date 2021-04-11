@@ -1,4 +1,4 @@
-
+{% load humanize %}
 <style>
   .bitbox{width:76px; border-right: 1px solid rgb(68, 59, 59); height:57px;  display:inline-block; 
              text-align:center; font-size:11px; margin:4px 3px 3px 3px; padding:4px;; }
@@ -12,8 +12,8 @@ background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219
   <div id="slide-box">
   {% for dat in coins %}
       <div class="bitbox" data-toggle="modal" data-target="#modal{{ dat.id }}">
-      {{dat.symbol }}<br>
-          ${{ dat.quote.USD.price | floatformat:4 }}<br>
+      <span style="font-weight: 640;"> {{dat.name }}</span><br>
+          <span style="color:rgb(65, 28, 28)">$</span><b>{{ dat.quote.USD.price | floatformat:2 |intcomma }}</b><br>
           {% if dat.quote.USD.percent_change_1h > 0 %}
           <span style="color:rgb(25, 136, 25);">
           <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
@@ -36,7 +36,7 @@ background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219
           <h6 class="modal-title" id="exampleModalLongTitle">
 
             {{ dat.name }} Purchase<br>
-            ${{ dat.quote.USD.price | floatformat:3 }}
+            ${{ dat.quote.USD.price | floatformat:3 | intcomma }}
 
           </h6>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -44,10 +44,10 @@ background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219
           </button>
         </div>
         <center class="modal-body w-80" style="font-size:14px">
-          Enter amount:<br>
+          How much worth of {{ dat.name }} would you like to buy<br>
           <form  method="POST" class="form-group mt-1" style="font-size:14px" action="{% url 'buy' %}"> 
             {% csrf_token %}
-            <input id="amt" type="number" placeholder="$" name="cash"><br>
+            <input id="amt" type="number" placeholder="Enter amount ($)" name="cash"><br>
             <input value="{{ dat.quote.USD.price | floatformat:4 }}" name="price" hidden>
             <input value="{{ dat.name }}" name="name" hidden>
           

