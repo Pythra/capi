@@ -27,7 +27,7 @@ def index(request):
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     parameters = {
         'start': '1',
-        'limit': '8',
+        'limit': '15',
         'convert': 'USD'
     }
     headers = {
@@ -46,10 +46,10 @@ def index(request):
 
     ann = Announcement.objects.all
     posts = Post.objects.all
-    capital = float(request.user.profile.balance)
     if request.user.is_authenticated:
+        capital = float(request.user.profile.balance)
         my_wallets = Wallet.objects.filter(owner=request.user)
-    context = {'ann': ann, 'posts': posts, 'coins': coins,}
+    context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital,}
     return render(request, 'cap/index.html', context)
 
 
@@ -210,7 +210,7 @@ def trade(request):
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     parameters = {
         'start': '1',
-        'limit': '9',
+        'limit': '12',
         'convert': 'USD'
     }
     headers = {
