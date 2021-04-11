@@ -48,8 +48,9 @@ def index(request):
     posts = Post.objects.all
     if request.user.is_authenticated:
         capital = float(request.user.profile.balance)
-        my_wallets = Wallet.objects.filter(owner=request.user)
-    context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital,}
+        my_wallets = Wallet.objects.filter(owner=request.user) 
+        context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital,}
+    context = {'ann': ann, 'posts': posts, 'coins': coins,}
     return render(request, 'cap/index.html', context)
 
 
