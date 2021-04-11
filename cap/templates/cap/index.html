@@ -28,14 +28,19 @@
 
 {% else %}
 {% include 'cap/nav/inslide.html' %}
+
+<a id="about">
 {% include 'cap/includes/why.html' %}
+</a>
 <div class="container" style="padding:10px!important;">
+    <a id="services">
     {% include 'cap/includes/services.html' %}
+    </a>
 <br>
 <div class="container" >
         {% include 'cap/includes/get_started.html' %}<hr>
         {% include 'cap/includes/plans.html' %}<br><hr>
-        {% include 'cap/includes/testimonies.html' %}<hr>
+        {% include 'cap/includes/testimonies.html' %}
 </div>
 </div>
 {% include 'cap/general_post_list.html' %}

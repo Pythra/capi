@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 {% load static %}
-    <title>Bootstrap 4 Fluid Layout Example</title>
+    <title></title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Baloo+Da+2" type="text/css">
@@ -22,14 +22,7 @@
 
 @media( max-width:768px)
 {
- #bn{font-size:23px; color:white; }
-#scroll{color: white ; font-size:17px;}
-.navbar-custom{height:61px;}
- .scrollmenu {
-  background-color: brown; height:27px;
-  overflow: auto; overflow-y: hidden;
-  white-space: nowrap;
-  }}
+.navbar-custom{height:61px;}}
 #logo-pic{height:40px; width:auto; position:absolute}
   .sidenav{ height:70px; width:0; float:right; background-color:whitesmoke;
             transition:0.5s}
@@ -38,12 +31,12 @@
   </head>
   <body>
     {% if user.is_authenticated %}
-    <nav class="navbar navbar-expand-lg" style="background-color:yellow; color:black; padding:1px!important" >
+    <nav class="navbar navbar-expand-lg" style="background-color:yellow; color:black; padding:4px!important" >
    <a href="{% url 'home' %}" class="navbar-brand mx-auto">
       
       <span style="font-family: 'Ubuntu bold';">
-        CAPITAL<span style="color:rgb(187, 53, 0)">
-          <img src="{% static 'capping/phyno.svg' %}" style="height: 41px;"> PHOENIX</span>
+        <span style="color:rgb(187, 53, 0)">Capital</span>
+          <img src="{% static 'capping/phyno.svg' %}" style="height: 41px;"> Phoenix
       </span>
     
     
@@ -55,12 +48,13 @@
 background-image: linear-gradient(to left, white, rgba(255, 255, 255, 0), rgb(255, 219, 174),);"" >
 <a href="{% url 'home' %}" class="navbar-brand ml-1">
   <img src="{% static 'capping/phyno.svg' %}" style="height: 41px;">
-  <span style="font-family: 'Ubuntu Bold';">Capital<span style="color:rgb(187, 53, 0)"> Phoenix</span></span>
+  <span style="font-family: 'Ubuntu Bold';">
+    <span style="color:rgb(187, 53, 0)">Capital </span>Phoenix</span>
 </a>
 
 <span class="navbar-toggler" data-toggle="collapse" data-target="#navbarToggler"
     aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
-<i class="fa fa-bars" style="font-size:23px; color:black; outline:none; border:none;" ></i>
+<i class="fa fa-bars" style="font-size:22px; color:black; outline:none; border:none;" ></i>
 </span>
 
 <div class="collapse navbar-collapse" id="navbarToggler">
