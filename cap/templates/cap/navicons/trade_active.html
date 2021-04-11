@@ -2,31 +2,53 @@
 <style>
   .icon{ font-size:23px; color:grey}
        </style>
-<div style="height:50px; padding:13px; background-color:whitesmoke; width:100%;
-      overflow:hidden;bottom:0; position:fixed;"
+<div style="height:50px; padding:13px; background-color:whitesmoke; width:100%;position:fixed;bottom:0;"
      class="navbar d-flex justify-content-between">
 <a href="{% url 'home' %}">
-  <i class="fa fa-dashboard icon"></i>
-</a>
-<a href="{% url 'trade' %}">
-  <i class="fa fa-dollar icon" style="color:black;"></i>
-</a>
-<a href="{% url 'chat:room' 1 %}">
-  <i class="fa fa-envelope-o icon"></i>
-    {% if unseen %}
-    <span style="width:14px; height:14px;  background-color:red; color:white; left:10px;
-        font-size:10px; border:none; display:inline-block; border-radius:50%; position:absolute;">
-        <center>{{ unseen.count }}</center>
-    </span>
-    {% endif %}
+  <i class="fa fa-dashboard icon""></i>
 </a>
 
-<a href="#">
+<a href="{% url 'trade' %}">
+  <i class="fa fa-dollar icon" style="color:black;"></i>
+</a> 
+  <i class="fa fa-envelope-o icon" data-toggle="modal" data-target="#modalmail" ></i>
+
+<a href="{% url 'wallets' %}">
   <i class="fa fa-bell-o icon"></i>
 </a>
 <a href="{% url 'settings' %}">
-  <i class="fa fa-gear icon" ></i>
+  <i class="fa fa-gear icon"></i>
 </a>
 
 </div>
 
+
+
+
+
+<!-- Modal -->
+<div class="modal fade w-80" id="modalmail" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h6 class="modal-title" id="exampleModalLongTitle">
+    Send us an email
+  </h6>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<center class="modal-body w-80" style="font-size:14px">
+ <br>
+  <form  method="POST" class="form-group mt-1" style="font-size:14px" action="{% url 'home' %}"> 
+    {% csrf_token %}
+  <input style="border:1px solid grey; height:50px; width:80%" type="text" class="my-1"><br>
+    <input class="btn btn-success btn-sm mt-2" type="submit" value="submit">
+    
+  </form>
+</center>
+
+</div>
+</div>
+</div>

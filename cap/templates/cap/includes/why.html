@@ -1,11 +1,51 @@
+
+{% load static %}
 <style>
 #list-headings{ font-weight:650; color:blue; display:block; margin-top: 10px;}
-</style>
-{% load static %}
-    <center class="my-3">
-  <span style="font-size:17px">Why choose</span>
-        <h5 class="head" style="display:inline-block">Capital Phoenix?</h5>
 
+#inpic{width:100%;
+  height: 240px;
+        border:1px;padding:4%; font-weight: 700; font-size:x-large; 
+        background-repeat:no-repeat;
+  background-size: cover;}
+.yellow { color: white;
+        background-image: 
+          linear-gradient(
+            rgba(255, 215, 15, 0.6),
+            rgba(255, 215, 15, 0.4)
+          ),
+          url('{% static 'capping/coscare.jpeg' %}')
+}
+.blue { color: white;
+        background-image: 
+          linear-gradient(
+            rgba(15, 255, 255, 0.6),
+            rgba(15, 255, 255, 0.4)
+          ),
+          url('{% static 'capping/meeting.jpeg' %}')
+}
+.red { color: white;
+        background-image: 
+          linear-gradient(
+            rgba(255, 15, 67, 0.4),
+            rgba(255, 15, 67, 0.4)
+          ),
+          url('{% static 'capping/flen.jpeg' %}')
+}
+.green {
+        background-image: 
+          linear-gradient(
+            rgb(15, 179, 255),
+            rgb(15, 239, 255)
+          ),
+          url('{% static 'capping/coscare.jpeg' %}')
+}
+</style>
+    <center class="my-1 mx-1">
+  <span style="font-size:17px"> <h5 style="color:rgb(158, 42, 42)" class="my-3">Welcome to Capital Phoenix</h5></span>
+<small style="display: block; line-height: 1.5em; font-weight: lighter;">Among the numerous websites providing Bitcoin exchange services 
+  and investment, the positive reputation of capital phoenix makes it worth the trust of the users 
+  all over the world.</small>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
@@ -15,17 +55,28 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <div id="list-headings">24/7 customer care services</div>
-        <img  class="my-2" id="inpic" src="{% static 'capping/coscare.jpeg' %}"><br>
+        <div  class="my-2 yellow" id="inpic">
+          Get up to speed with the latest market rates and updates on all cryptocurrencies
+         <br>
+          <button class="btn btn-sm btn-danger mt-4" style="color: rgb(255, 255, 255); font-family: helsinki;">
+            <b>Get started</b>
+          </button> </div>
     </div>
     <div class="carousel-item">
-        <div id="list-headings">Live updates on cryptocurrency values</div>
-        <img  class="my-2" id="inpic" src="{% static 'capping/meeting.jpeg' %}"><br>
+      <div  class="my-2 red" id="inpic">
+        Buy and sell cryptocurrencies at the best market rates worldwide<br>
+        <button class="btn btn-sm btn-warning mt-1" style="color: black; font-family: helsinki;">
+          <b>Get started</b>
+        </button>
+        </div>
     </div>
     <div class="carousel-item">
-        <div id="list-headings">Get trading tips from experts</div>
-        <img  class="my-2" id="inpic" src="{% static 'capping/flen.jpeg' %}"><br>
-
+      <div  class="my-2 blue" id="inpic">
+        Get trading tips from experts and join our trading community of over 18,800 men and women<br>
+        <button class="btn btn-sm btn-success mt-1" style="color: white; font-family: helsinki;">
+          <b>Get started</b>
+        </button>
+      </div>
     </div>
   </div>
   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

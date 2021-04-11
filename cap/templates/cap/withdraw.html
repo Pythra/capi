@@ -1,4 +1,4 @@
-<style>
+{% load static %}<style>
 
     .titbox{width:100px; border: none; height:100px;  display:inline-block; background-color:whitesmoke;
                 border-radius:50%; text-align:center; font-size:12px; margin:4px 3px 3px 3px; padding-top:22px;
@@ -105,8 +105,23 @@
           <input type="text" name="{{ form.cc_code.html_name }}" placeholder="123" id="log" class="mb-1 w-40">
         </div>
       </div>
+      <br>
+      <span>Withdrawal amount:</span>
+      <input type="text" name="{{ form.name.html_name }}" placeholder="$" id="log" class="w-80 mb-3">
+      
+      
+      
+      
       <center>
-        <input type="submit" class="btn btn-info btn-sm mt-4" value="Submit">
-        </center>
+        <input type="submit" class="btn btn-info btn-sm my-4" value="Submit"><br>
+        <img src="{% static 'capping/visa.svg' %}" style="height: 47px;">
+        <img src="{% static 'capping/mastercard.svg' %}" style="height: 47px;">
+        <img src="{% static 'capping/american-express.svg' %}" style="height: 47px;">
+        <img src="{% static 'capping/discover.svg' %}" style="height: 47px;">
+      </center>
+
+
+
+
     </form>
     </div>

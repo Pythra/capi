@@ -1,48 +1,30 @@
-<style>
-.bitbox{width:76px; border: none; height:69px;  display:inline-block; background-color:whitesmoke;
-            border-radius:8px; text-align:center; font-size:11px; margin:4px 3px 0px 3px; padding:4px;
-            box-shadow: inset 3px 3px 3px lightgrey; }
-#slide-box{height:101px; width:100%; color:black;
-                    display:inline-block; overflow:scroll; 
-                    white-space:nowrap; overflow-x:scroll; overflow-y:hidden;}
-#amt{width:50%; border-radius:40px; border:none; background-color: whitesmoke; height: 35px; padding:9px;}.line-container {
-  width: 100%;
-  height: 300px;
-  margin-top: 350px;
-  position: relative;
-}
 
-#tri {
-      width: 0;
-      height: 0;
-      border-left: 12px solid transparent;
-      border-right: 14px solid transparent;
-      border-bottom: 20px solid white;
-    }
-</style>
-{% include 'cap/includes/cashbar.html' %}
-<center>
-    <span style="font-size:10px; color: grey;">
-        Select your preffered cryptocurrency
-    </span>
-</center>
-<div id="slide-box">
-{% for dat in coins %}
-    <div class="bitbox">
-    <b>{{dat.symbol }}</b><br>
-        ${{ dat.quote.USD.price | floatformat:2 }}<br>
-        <span style="{% if dat.quote.USD.percent_change_1h > 0 %}color:green;{% else %}color:red;{% endif %}">
-            %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
-        </span><br>
-        <center>
-        <div class="btn btn-sm btn-dark mt-1" style="font-size:10px; padding:4px 4px 4px 0;border:none; bottom:0;
-        background-color: grey; border-radius: 4px 4px 0 0; height: 55px; width:27px; padding-left: 1px;" 
-        data-toggle="modal" data-target="#modal{{ dat.id }}">
-            <span style="display: block; margin-left: 2px">BUY</span>
-            <center id="tri">
-            </center>
-        </div>
-    </div>
+<style>
+  .bitbox{width:76px; border-right: 1px solid rgb(68, 59, 59); height:57px;  display:inline-block; 
+             text-align:center; font-size:11px; margin:4px 3px 3px 3px; padding:4px;; }
+  #slide-box{height:66px; width:100%; color:black;
+                      display:inline-block; overflow:scroll; 
+                      white-space:nowrap; overflow-x:scroll; overflow-y:hidden;
+              
+animation: slide infinite ease-in-out;        
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219, 174));}
+  </style>
+  <div id="slide-box">
+  {% for dat in coins %}
+      <div class="bitbox" data-toggle="modal" data-target="#modal{{ dat.id }}">
+      {{dat.symbol }}<br>
+          ${{ dat.quote.USD.price | floatformat:4 }}<br>
+          {% if dat.quote.USD.percent_change_1h > 0 %}
+          <span style="color:rgb(25, 136, 25);">
+          <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+          </span>
+          {% else %}
+          <span style="color:red;">
+          <i class="fa fa-arrow-down"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+          </span>
+          {% endif %}
+      </div>
+  
 
 
   <!-- Modal -->
@@ -81,3 +63,4 @@
   </div>
   {% endfor %}
   </div>
+  {% include 'cap/includes/cashbar.html' %}

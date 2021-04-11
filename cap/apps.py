@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class CappingConfig(AppConfig):
-    name = 'capping'
+class CapConfig(AppConfig):
+    name = 'cap'

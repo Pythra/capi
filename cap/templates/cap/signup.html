@@ -1,10 +1,9 @@
 {% extends 'cap/base.html' %}
 {% block title %}
 #loginbox{width:85%; border:1px solid whitesmoke;
-                        padding:10px; box-shadow:inset 3px 5px 7px whitesmoke, 3px 5px 7px grey; border-radius:12px;}
+                        padding:10px; box-shadow: 3px 5px 7px grey; border-radius:12px;}
 
-#login{border:none; border-radius:30px;background-color:whitesmoke; padding:6px;;}
-#login{border:none; border-radius:30px;background-color:whitesmoke; padding:6px;;}
+#login{border:none; border-radius:10px;background-color:whitesmoke; padding:6px;;}
   #milklogin{ font-weight:600}
 #logbtn{border:2px solid black; font-weight:bold}
 #logbtn:focus{border:2px solid purple; color:white; font-weight:bold; background-color:purple;}
@@ -21,8 +20,10 @@
     {% csrf_token %}
     <input type="text" name="{{ form.username.html_name }}" placeholder="{{ form.username.html_name }}" id="login" class="w-100 mt-2">
     <input type="text" name="{{ form.email.html_name }}" placeholder="{{ form.email.html_name }}" id="login" class="mt-4 w-100">
-    <input type="password" name="{{ form.password1.html_name }}" placeholder="{{ form.password1.html_name }}" id="login" class="mt-4 w-100">
-    <input type="password" name="{{ form.password2.html_name }}" placeholder="{{ form.password2.html_name }}" id="login" class="mt-4 w-100">
+    <input type="password" name="{{ form.password1.html_name }}" placeholder="password" 
+    id="login" class="mt-4 w-100">
+    <small style="font-size: 10px;color: grey;">Your password must be up to 8 characters and must contain letters</small>
+    <input type="password" name="{{ form.password2.html_name }}" placeholder="confirm password" id="login" class="mt-4 w-100">
   <div class="text-center mt-3">
    <a href="{% url 'signup' %}">
        <button type="submit" class="btn btn-sm btn-danger w-100 " style=" border-radius:30px;">sign up</button>
@@ -36,5 +37,6 @@
    <input type="hidden" name="next" value="{{ next }}">
 </div>
     </center>
+    {% include 'cap/includes/foot.html' %}
 
 {% endblock %}
