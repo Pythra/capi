@@ -5,16 +5,21 @@
     <center><h5 class="mt-4">Our packages</h5></center>
 <div class="my-4" style="border:1px solid brown; padding:10px; height:auto;width:100%; 
 background-color:bisque; box-shadow:5px 5px 5px brown;">
-    <div class="row">
-        <div class="col-5" style="display:block; line-spacing:0.1em">
-            <b class="ml-2">Bronze</b>
-        </div>
-
-        <div class="col-7 pl-2">
-            <b style="font-size:20px;" class="ml-4">
+<div class="row">
+    <div class="col-6">
+        <div style="border: 1px solid brown; background-color: brown;padding: 4px;
+        width:100%; color: white; border-radius: 6px;">
+            <b class="ml-2 mr-4" style="">Bronze</b>
+            <b style="font-size:17px;" class="ml-5">
                 <sup><b>$</b></sup>1000</b><sub><i style="font-size:9px; ">365days</i></sub>
         </div>
-    </div>
+        </div>
+        <div class="col-6">
+            <button style="float:right" class="btn btn-sm 
+            {% if request.user.profile.balance > 1000 %}btn-success{% else %}btn-secondary{% endif %}">
+                Purchase
+            </button>
+</div></div>
             <ul class="list-group m-1">
                 <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:bisque">
                     <small>

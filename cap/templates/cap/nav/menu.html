@@ -55,7 +55,7 @@
         <a href="#">Services</a>
         <a href="{% url 'payment' %}#last">Payment</a>
         <a href="{% url 'withdraw' %}">Withdrawal</a>
-        <a href="{% url 'chat:room' 1 %}#last">Customer care</a>
+        <a data-toggle="modal" data-target="#modalmail" style="color: white;">Customer care</a>
         <a href="{% url 'trade' %}">Trade</a>
         <a href="{% url 'my_wallets' %}">My Wallets</a>
         <a href="{% url 'logout'%}?next={{ request.path}}">Logout</a>
@@ -89,3 +89,28 @@
       </script>
       
     
+
+
+<!-- Modal -->
+<div class="modal fade w-80" id="modalmail" tabindex="-1" role="dialog" 
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal-dialog modal-dialog-centered" role="document">
+<div class="modal-content">
+<div class="modal-header">
+  <h6 class="modal-title" id="exampleModalLongTitle">
+    Send us an email
+  </h6>
+  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<center class="modal-body w-80" style="font-size:14px">
+ <br>
+  <input style="border:1px solid grey; height:90px; width:80%" placeholder="Enter a message" type="text" class="mb-1"><br>
+    <input class="btn btn-success btn-sm mt-2" type="submit" value="submit">
+    
+</center>
+
+</div>
+</div>
+</div>

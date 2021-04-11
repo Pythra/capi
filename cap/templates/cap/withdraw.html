@@ -42,7 +42,7 @@
   .sidenav a {font-size: 18px;}
 }
 .fa-arrow-right{color:green}
-#log{border-radius: 4px;}
+#log{border:none; border-bottom: 1px solid black;}
                 </style>
 
     {% include 'cap/nav/nav.html' %}
@@ -70,7 +70,7 @@
           <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_expiry.html_name }}" placeholder="11/12" id="log" class="mb-1">
         </div>
         <div class="col-6">
-          <span>CVV:</span>
+          <span>CVV:</span><br>
           <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_code.html_name }}" placeholder="123" id="log" class="mb-1">
         </div>
       </div>

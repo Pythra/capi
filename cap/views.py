@@ -46,6 +46,7 @@ def index(request):
 
     ann = Announcement.objects.all
     posts = Post.objects.all
+    capital = float(request.user.profile.balance)
     if request.user.is_authenticated:
         my_wallets = Wallet.objects.filter(owner=request.user)
     context = {'ann': ann, 'posts': posts, 'coins': coins,}
@@ -157,29 +158,10 @@ def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug)
     post.visits = post.visits + 1
     post.save()
-    comments = post.comments.order_by('-created_on')
     post = get_object_or_404(Post, slug=slug)
-    if request.method == 'POST':
-        form = CommentForm(request.POST, request.FILES)
-        if form.is_valid():
-            comment = form.save(commit=False)
-            comment.post = post
-            comment.name = request.user
-            comment.save()
-            return HttpResponseRedirect(reverse('post_detail', kwargs={'slug': slug}))
-    else:
-        form = CommentForm()
-    context = {'form': form, 'post': post, 'slug': slug, 'comments': comments, 'visits': post.visits,
+    context = {'post': post, 'slug': slug, 'visits': post.visits,
                }
-    if request.user.is_authenticated:
-        note_comments = Comment.objects.filter(post__creator=request.user, not_status='unseen').exclude(
-            name=request.user)
-        note_mentions = Comment.objects.filter(body__icontains=request.user, not_status='unseen').exclude(
-            name=request.user)
-        note_replies = Reply.objects.filter(comment__name=request.user, not_status='unseen')
-        context = {'note_comments': note_comments, 'note_mentions': note_mentions, 'note_replies': note_replies,
-                   'form': form, 'post': post, 'slug': slug, 'comments': comments, 'visits': post.visits,
-                   }
+   
     return render(request, 'cap/post_detail.html', context)
 
 

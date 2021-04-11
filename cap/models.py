@@ -27,6 +27,7 @@ class Profile(models.Model):
     birthday = models.CharField(max_length=20, blank=True, null=True, )
     job = models.CharField(max_length=20, blank=True, null=True, )
     balance = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
+    capital = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     email_confirmed = models.BooleanField(default=False)
     joined = models.DateTimeField(auto_now_add=True)
 
