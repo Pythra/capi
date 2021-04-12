@@ -12,8 +12,8 @@
     <div id="slide-box">
     {% for dat in coins %}
         <div class="bitbox">
-        {{dat.name }}<br>
-            ${{ dat.quote.USD.price | floatformat:2 | intcomma}}<br>
+        <span style="font-weight: 600;">{{dat.name }}<br>
+           ${{ dat.quote.USD.price | floatformat:2 | intcomma}}<br>
             {% if dat.quote.USD.percent_change_1h > 0 %}
             <span style="color:rgb(25, 136, 25);">
             <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
@@ -22,7 +22,7 @@
             <span style="color:red;">
             <i class="fa fa-arrow-down"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
             </span>
-            {% endif %}
+            {% endif %}</span>
         </div>
     {% endfor %}
     </div>

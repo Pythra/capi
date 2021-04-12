@@ -5,15 +5,14 @@
   #slide-box{height:66px; width:100%; color:black;
                       display:inline-block; overflow:scroll; 
                       white-space:nowrap; overflow-x:scroll; overflow-y:hidden;
-              
-animation: slide infinite ease-in-out;        
+                     
 background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219, 174));}
   </style>
   <div id="slide-box">
   {% for dat in coins %}
       <div class="bitbox" data-toggle="modal" data-target="#modal{{ dat.id }}">
       <span style="font-weight: 640;"> {{dat.name }}</span><br>
-          <span style="color:rgb(65, 28, 28)">$</span><b>{{ dat.quote.USD.price | floatformat:2 |intcomma }}</b><br>
+      <b><span style="color:rgb(65, 28, 28)">$</span>{{ dat.quote.USD.price | floatformat:2 |intcomma }}</b><br>
           {% if dat.quote.USD.percent_change_1h > 0 %}
           <span style="color:rgb(25, 136, 25);">
           <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
