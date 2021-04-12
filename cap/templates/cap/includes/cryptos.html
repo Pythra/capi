@@ -1,11 +1,11 @@
 
-
+{% load humanize %}
         <div class="container my-2 pt-3 mb-5">
         <small style="color:grey; font-size:small">Select your preferred crypto currency</small>
         {% for dat in coins %}
         <ul class="list-group" style="font-size: 13PX;">
             <li class="list-group-item mt-2" style="  border: 1px whitesmoke;     
-            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 254, 174))">
+            background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(245, 255, 232))">
                 <div class="row">
                     <div class="col-3">
                         {{ dat.name }}
@@ -25,11 +25,11 @@
                 {{ dat.quote.USD.percent_change_1h | floatformat:2  }}%
             </span></div>      
                     <div class="col-3">
-                        ${{ dat.quote.USD.price | floatformat:2 }}
+                        ${{ dat.quote.USD.price | floatformat:2 | intcomma }}
                  
                     </div>
                     <div class="col-3">
-                        <button class="btn btn-info btn-sm pull-right"
+                        <button class="btn btn-success btn-sm pull-right"
                         data-toggle="modal" data-target="#modal{{ dat.id }}" style="font-size:11PX">BUY</button>
                        
                     </div>
