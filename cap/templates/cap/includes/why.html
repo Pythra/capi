@@ -18,22 +18,22 @@
 
 #inpic{width:100%;
   height: 240px;
-        border:1px;padding:4%; font-weight: 700; font-size:x-large; 
+        border:1px;padding:4%; font-weight: 650; font-size:x-large; 
         background-repeat:no-repeat;
   background-size: cover;}
-.yellow { color: white;
+.yellow { color: rgb(255, 255, 255);
         background-image: 
           linear-gradient(
-            rgba(255, 215, 15, 0.6),
-            rgba(255, 215, 15, 0.4)
+            rgba(255, 255, 0, 0.459),
+            rgba(161, 161, 0, 0.507)
           ),
           url('{% static 'capping/coscare.jpeg' %}')
 }
 .blue { color: white;
         background-image: 
           linear-gradient(
-            rgba(15, 255, 255, 0.6),
-            rgba(15, 255, 255, 0.4)
+            rgba(180, 194, 255, 0.6),
+            rgba(15, 39, 255, 0.4)
           ),
           url('{% static 'capping/meeting.jpeg' %}')
 }
@@ -49,14 +49,14 @@
         background-image: 
           linear-gradient(
             rgb(15, 179, 255),
-            rgb(15, 239, 255)
+            rgb(180, 250, 255)
           ),
           url('{% static 'capping/coscare.jpeg' %}')
 }
 </style>
-    <center class="my-1 mx-1">
+    <center class="my-1">
   <span style="font-size:17px"> 
-    <h5 style="color:rgb(158, 42, 42)" class="my-3">Welcome to Capital Phoenix</h5>
+    <h5 style="color:red" class="my-3" id="about">Welcome to Capital Phoenix</h5>
   </span>
 <small style="display: block; line-height: 1.5em; font-size: 12px;">
   Among the numerous websites providing bitcoin exchange services 
@@ -64,34 +64,35 @@
   all over the world.</small>
 
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-  <ol class="carousel-indicators">
+  <ol class="carousel-indicators" style="width: 16px;">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-        <div  class="my-2 yellow" id="inpic" style="color: black;">
-          Get up to speed with the latest market rates and updates on all cryptocurrencies
-         <br>
-          <button class="btn btn-sm btn-danger mt-4" style="color: rgb(255, 255, 255); font-family: helsinki;">
-            <b>Get started</b>
-          </button> </div>
+        <div  class="my-2 yellow" id="inpic">
+          Get up to speed with the latest market rates and updates on all cryptocurrencies.
+         <br>  <a href="#sign">
+          <button class="btn btn-sm btn-danger mt-4" style="">
+             <b>Get started</b> 
+          </button> </div></a>
     </div>
     <div class="carousel-item">
       <div  class="my-2 red" id="inpic">
-        Buy and sell cryptocurrencies at the best market rates worldwide<br>
-        <button class="btn btn-sm btn-warning mt-1" style="color: black; font-family: helsinki;">
-          <b>Get started</b>
-        </button>
+        Make money from our investment plans, buy and sell cryptocurrencies,
+         at the best market rates worldwide<br>
+         <a href="#sign"><button class="btn btn-sm btn-warning mt-3 " style="color: black; ">
+         Get started
+        </button></a>
         </div>
     </div>
     <div class="carousel-item">
-      <div  class="my-2 blue" id="inpic" style="color: black;">
+      <div  class="my-2 blue" id="inpic" style="color: rgb(255, 255, 255);">
         Get trading tips from experts and join our trading community of over 18,800 men and women<br>
-        <button class="btn btn-sm btn-success mt-1" style="color: white; font-family: helsinki;">
-          <b>Get started</b>
-        </button>
+        <a href="#sign"><button class="btn btn-sm btn-primary mt-3" style="color: white;">
+          Get started
+        </button></a>
       </div>
     </div>
   </div>

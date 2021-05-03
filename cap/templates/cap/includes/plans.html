@@ -1,254 +1,341 @@
-<style>
-    .list-group-item{border:none; border-bottom: 1px solid grey;}
-</style>
-<div>
-    <center><h5 class="mt-4">Our packages</h5></center>
-<div class="my-4" style="border:1px solid brown; padding:10px; height:auto;width:100%; 
-background-color:bisque; box-shadow:5px 5px 5px brown;">
-<div class="row">
-    <div class="col-6">
-        <div style="border: 1px solid brown; background-color: brown;padding: 4px;
-        width:100%; color: white; border-radius: 6px;">
-            <b class="ml-2 mr-4" style="">Bronze</b>
-            <b style="font-size:17px;" class="ml-5">
-                <sup><b>$</b></sup>1000</b><sub><i style="font-size:9px; ">365days</i></sub>
-        </div>
-        </div>
-        <div class="col-6">
-            <button style="float:right" class="btn btn-sm 
-            {% if request.user.profile.balance > 1000 %}btn-success{% else %}btn-secondary{% endif %}">
-                Purchase
-            </button>
-</div></div>
-            <ul class="list-group m-1">
-                <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:bisque">
-                    <small>
-                        <span class="pull-left">
-                            Daily ROI
-                        </span>
-                        <span class="pull-right">
-                            $10
-                        </span>
-                    </small>
 
-                </li>
-                <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:bisque">
+    <center><h6 class="mt-2" id="plans">Investment Packages</h6></center>   
+     <small class="text-muted" style="font-size:12px;">
+         PAYMENT: CARD, BITCOIN, ETHEREUM
+     </small>
+    
+    
+    <style>
+        .list-group{border:none !important;}
+        .list-group-item{border:none; border-bottom: 1px solid rgb(211, 211, 211);}
+        .pull-left {font-weight:600}
+     .pull-right{font-weight:600}
+     #pox{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid brown; border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+     #sox{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid rgb(148, 148, 148); border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+     #gox{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid gold; border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+     #kox{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid rgb(44, 156, 201); border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+   #ex{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid red; border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+   #tex{ padding:10px; height:auto;width:95%; background-color:rgb(255, 255, 255);
+        border: 5px solid rgb(102, 255, 0);; border-radius: 15px; font-size: 13px; margin-left:8px;
+   }
+#pres{ font-weight: 600;}
+    </style>
+
+<div class="mx-auto">
+
+<div class="my-4" id="pox">
+<div class="row">
+    <div class="col-8"> 
+            <b style="color: brown;">BRONZE</b><br>
+            <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+            style="color:brown; margin-right:1px ;">$50</b>  
+            <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+            style="color: brown;">5months</b>
+            
+        </div>
+        <div class="col-4">
+            <form method="POST" action="{% url 'plan_detail' %}">
+                {% csrf_token %}
+                <input name="plan" value="bronze" hidden>
+                <input name="cost" value="50" hidden>
+                <input name="mon" value="35" hidden>
+            <button class="btn btn-sm btn-danger mt-1" style="font-weight:BOLD; color: white; 
+             padding: 0 3px 0 3px !important;"> 
+                <small><b>PURCHASE</b></small> 
+            </button>
+        </form> 
+</div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+<center>
+            <ul class="list-group m-1"> 
+                <li class="list-group-item p-0 pr-2 pl-2 m-1">
                     <small>
                         <span class="pull-left">
                             Weekly ROI
                         </span>
                         <span class="pull-right">
-                            $100
+                            $50.00
                         </span>
                     </small>
 
                 </li>
-                <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:bisque">
+                <li class="list-group-item p-0 pr-2 pl-2 m-1">
                     <small>
                         <span class="pull-left">
                             Monthly ROI
                         </span>
                         <span class="pull-right">
-                            $500
+                            $200.00
                         </span>
                     </small>
 
-                </li>
-                <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:bisque">
-                    <small>
-                        <span class="pull-left">
-                            Annual ROI
-                        </span>
-                        <span class="pull-right">
-                            $6000
-                        </span>
-                    </small>
-
-                </li>
+                </li> 
             </ul>
-        </div>
     </div>
-    <div class="my-4" style="border:1px solid silver; padding:10px; height:auto;width:100%; 
-     box-shadow:5px 5px 5px silver;">
-        <div class="row">
-            <div class="col-5" style="display:block; line-spacing:0.1em">
-                <b class="ml-2">Silver</b>
+</center>
+
+
+
+
+<div class="my-4" id="sox">
+    <div class="row">
+        <div class="col-8"> 
+                <b style="color:grey;">SILVER</b><br>
+                
+                <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+                style="color: grey; margin-right:1px ;">$100</b>  
+                <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+                style="color: grey;">5months</b>
+                
             </div>
-    
-            <div class="col-7 pl-2">
-                <b style="font-size:20px;" class="ml-4">
-                    <sup><b>$</b></sup>2000</b><sub><i style="font-size:9px; ">365days</i></sub>
-            </div>
-        </div>
-                <ul class="list-group m-1">
-                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="">
-                        <small>
-                            <span class="pull-left">
-                                Daily ROI
-                            </span>
-                            <span class="pull-right">
-                                $10
-                            </span>
-                        </small>
-    
-                    </li>
-                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="">
+            <div class="col-4">
+                <button class="btn btn-sm btn-secondary mt-1" 
+                style="font-weight:BOLD;  padding: 0 3px 0 3px !important;">
+                    <small><b>PURCHASE</b></small>
+                </button>
+    </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+    <center>
+                <ul class="list-group m-1"> 
+                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
                                 Weekly ROI
                             </span>
                             <span class="pull-right">
-                                $100
+                                $135.00
                             </span>
                         </small>
     
                     </li>
-                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="">
+                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
                                 Monthly ROI
                             </span>
                             <span class="pull-right">
-                                $500
+                                $500.00
                             </span>
                         </small>
     
-                    </li>
-                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="">
+                    </li> 
+                </ul>
+        </div>
+    </center>
+
+    
+
+<div class="my-4" id="gox">
+    <div class="row">
+        <div class="col-8"> 
+                <b style="color: rgb(255, 183, 0);">GOLD</b><br>
+                
+                <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+                style="color:rgb(255, 183, 0); margin-right:1px ;">$250</b>  
+                <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+                style="color: rgb(255, 183, 0);">5months</b>
+                
+            </div>
+            <div class="col-4">
+                <button class="btn btn-sm btn-warning mt-1" 
+                style="font-weight:bold; padding: 0 3px 0 3px !important;">
+                    <small><b>PURCHASE</b></small>
+                </button>
+            </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+    <center>
+                <ul class="list-group m-1">
+                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
-                                Annual ROI
+                                Weekly ROI
                             </span>
                             <span class="pull-right">
-                                $6000
+                                $70
                             </span>
                         </small>
     
                     </li>
+                    <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                        <small>
+                            <span class="pull-left">
+                                Monthly ROI
+                            </span>
+                            <span class="pull-right">
+                                $2,100
+                            </span>
+                        </small>
+    
+                    </li> 
                 </ul>
-            </div>
+        </div>
 
+    
 
-        <div class="my-4" style="background-color:gold;border:1px solid gold; padding:10px; height:auto;width:100%; 
-        box-shadow:5px 5px 5px darkgoldenrod;">
-           <div class="row">
-               <div class="col-5" style="display:block; line-spacing:0.1em">
-                   <b class="ml-2">Gold</b>
-               </div>
-       
-               <div class="col-7 pl-2">
-                   <b style="font-size:20px;" class="ml-4">
-                       <sup><b>$</b></sup>5000</b><sub><i style="font-size:9px; ">2years</i></sub>
-               </div>
-           </div>
-                   <ul class="list-group m-1">
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:gold">
-                           <small>
-                               <span class="pull-left">
-                                   Daily ROI
-                               </span>
-                               <span class="pull-right">
-                                   $10
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:gold">
-                           <small>
-                               <span class="pull-left">
-                                   Weekly ROI
-                               </span>
-                               <span class="pull-right">
-                                   $100
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:gold">
-                           <small>
-                               <span class="pull-left">
-                                   Monthly ROI
-                               </span>
-                               <span class="pull-right">
-                                   $500
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:gold">
-                           <small>
-                               <span class="pull-left">
-                                   Annual ROI
-                               </span>
-                               <span class="pull-right">
-                                   $6000
-                               </span>
-                           </small>
-       
-                       </li>
-                   </ul>
-               </div>
-   
-   
+        <div class="my-4" id="kox">
+            <div class="row">
+                <div class="col-8"> 
+                        <b style="color: rgb(44, 156, 201);">PLATINUM</b><br>
+                        
+                        <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+                        style="color: rgb(44, 156, 201); margin-right:1px ;">$500</b>  
+                        <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+                        style="color: rgb(44, 156, 201);">5months</b>
+                        
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-sm btn-info mt-1" 
+                        style="font-weight:bold; padding: 0 3px 0 3px !important;">
+                            <small><b>PURCHASE</b></small>
+                        </button>
+            </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+            <center>
+                        <ul class="list-group m-1">
+                          
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Monthly ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $2,100
+                                    </span>
+                                </small>
+            
+                            </li>
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Annual ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $25,200
+                                    </span>
+                                </small>
+            
+                            </li>
+                        </ul>
+                </div>
+                
+        <div class="my-4" id="tex">
+            <div class="row">
+                <div class="col-8"> 
+                        <b style="color:rgb(86, 216, 0);">ENTERPRENEUR</b><br>
+                        
+                        <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+                        style="color:rgb(86, 216, 0); margin-right:1px ;">$1000</b>  
+                        <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+                        style="color: rgb(86, 216, 0);">1year</b>
+                        
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-sm mt-1 btn-success text-light" 
+                        style=" font-weight:bold; padding: 0 3px 0 3px !important;">
+                            <small><b>PURCHASE</b></small>
+                        </button>
+            </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+            <center>
+                        <ul class="list-group m-1">
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Weekly ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $125.00
+                                    </span>
+                                </small>
+            
+                            </li>
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Monthly ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $500.00
+                                    </span>
+                                </small>
+            
+                            </li> 
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Annual ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $6000.00
+                                    </span>
+                                </small>
+            
+                            </li> 
+                        </ul>
+                </div>
 
+                
 
-<div class="my-4" style="border:1px solid :#A2FFDC; padding:10px; height:auto;width:100%; 
- background-color:#A2FFDC; box-shadow:5px 5px 5px cadetblue;">
-           <div class="row">
-               <div class="col-5" style="display:block; line-spacing:0.1em">
-                   <b class="ml-2">Platinum</b>
-               </div>
-       
-               <div class="col-7 pl-2">
-                   <b style="font-size:20px;" class="ml-4">
-                       1<sup><b>BTC</b></sup></b><sub><i style="font-size:9px;  ">5years</i></sub>
-               </div>
-           </div>
-                   <ul class="list-group m-1">
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:#A2FFDC;">
-                           <small>
-                               <span class="pull-left">
-                                   Daily ROI
-                               </span>
-                               <span class="pull-right">
-                                   $10
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:#A2FFDC;">
-                           <small>
-                               <span class="pull-left">
-                                   Weekly ROI
-                               </span>
-                               <span class="pull-right">
-                                   $100
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:#A2FFDC;">
-                           <small>
-                               <span class="pull-left">
-                                   Monthly ROI
-                               </span>
-                               <span class="pull-right">
-                                   $500
-                               </span>
-                           </small>
-       
-                       </li>
-                       <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1" style="background-color:#A2FFDC;">
-                           <small>
-                               <span class="pull-left">
-                                   Annual ROI
-                               </span>
-                               <span class="pull-right">
-                                   $6000
-                               </span>
-                           </small>
-       
-                       </li>
-                   </ul>
-               </div>
-           </div></div>
+        <div class="my-4" id="ex">
+            <div class="row">
+                <div class="col-8"> 
+                        <b style="color:red;">TYCOON</b><br>
+                        
+                        <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
+                        style="color:red; margin-right:1px ;">$3000</b>  
+                        <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
+                        style="color: red">1year</b>
+                        
+                    </div>
+                    <div class="col-4">
+                        <button class="btn btn-sm mt-1 text-light" 
+                        style="background-color: red;font-weight:bold; padding: 0 3px 0 3px !important;">
+                            <small><b>PURCHASE</b></small>
+                        </button>
+            </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
+            <center>
+                        <ul class="list-group m-1">
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Weekly ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $300.00
+                                    </span>
+                                </small>
+            
+                            </li>
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Monthly ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $1200.00
+                                    </span>
+                                </small>
+            
+                            </li> 
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Annual ROI
+                                    </span>
+                                    <span class="pull-right">
+                                        $14,100.00
+                                    </span>
+                                </small>
+            
+                            </li> 
+                        </ul>
+                </div>
+
+                
+    </center> </div>
+    <i style="font-size: 11px;"><U>NB:</U> Withdrawals only available after each month.</i>

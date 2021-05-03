@@ -1,20 +1,20 @@
 {% load humanize %}
-<hr style="margin:3px; !important">
+<hr style="margin:0 3px 5px 3px; !important">
 <center>
     <div class="container row">
         <div class="col-4" style="border-right:1px solid lightgrey">
             <span style="font-size:10px"> My Balance</span>
-            <br>${{ request.user.profile.balance | intcomma }}
+            <br><small style="font-weight: 600;">${{ request.user.profile.balance | intcomma }}</small>
         </div>
         <div class="col-8 mt-2">
                 <a href="{% url 'payment' %}">
                    
-                  <button class="btn btn-success btn-sm ml-1 mb-1" style="border-radius:78px;">
+                  <button class="btn btn-sm btn-dark ml-1 mb-1" style="border-radius:90px; font-size: 12px;">
                     <b>Deposit</b>
                   </button>
                 </a>
                 <a href="{% url 'withdraw' %}">
-                  <button class="btn btn-outline-dark btn-sm ml-1 mb-1" style="border-radius:78px;">
+                  <button class="btn btn-danger btn-sm ml-1 mb-1" style="border-radius:90px; font-size: 12px;">
                       <b>Withdraw</b>
                   </button>
                 </a>
@@ -23,4 +23,4 @@
 
 
 </center>
-<hr style="margin-top:3px; !important;margin-bottom:3px;!important">
+<hr style="margin-top:5px!important;margin-bottom:3px !important">

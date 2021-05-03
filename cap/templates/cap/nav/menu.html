@@ -1,8 +1,6 @@
 <style>
-    .icon{ font-size:23px; color:grey}
-    #ann_box{diaplay:block;font-size:13px; border:none; background-color:bisque; padding:4px;
-              width:95%; border-radius:0 0 6px 6px ;
-      transform: rotate(-45deg);}
+    .icon{ font-size:24px; color:grey} 
+      #list{list-style: none; border: none; border-top: 1px solid rgba(255, 255, 255, 0.068);}
     #red{color:white; font-size:13px;height:20px; background-color:red; width:95%;
               border-radius:6px 6px 0 0; margin-top:10px; padding:1px; letter-spacing:0.1em;}
   .sidenav {
@@ -10,11 +8,11 @@
     width: 0;
     position: fixed;
     z-index: 1;
-    top: 19%;
+    top: 16%;
     left: 0;
-    background-color: #111;
+    background-color: rgb(117, 70, 0);
     overflow-x: hidden;
-    transition: 0.5s;
+    transition: 1s;
     padding-top: 20px;
   }
   
@@ -24,13 +22,17 @@
     font-size: 14px;
     color: white;
     display: block;
-    transition: 0.3s;
+    transition: 2s;
   }
   
   .sidenav a:hover {
-    color: #f1f1f1;
+    border: none; background-color: rgba(150, 114, 84, 0.637);
   }
   
+  
+  .sidenav a:active {
+    border: none; background-color: rgba(255, 225, 199, 0.63);
+  }
   .sidenav .closebtn {
     position: absolute;
     top: 0;
@@ -46,19 +48,39 @@
   </style>
   
       <div id="mySidenav" class="sidenav">
-        <a href="javascript:void(0)" class="closebtn" style="color: gray;" onclick="closeNav()">&times;</a><br>
-        <center style="color: gray; font-size: large;">
-          <i  style="color:white; font-size: 44px;" class="fa fa-user-circle-o my-2"></i><br>
-          <b style="color: yellow; font-size: 12px; text-transform: uppercase;">Michael Damian</b><br>
+        <span href="javascript:void(0)" class="closebtn" style="color: rgb(255, 255, 255);"
+         onclick="closeNav()">&times;</span><br>
+        <center style="font-size: large;" class="mb-2">
+          <i  style="color:rgba(255, 255, 255, 0.651); font-size: 44px;" class="fa fa-user-circle-o my-2"></i><br>
+          <b style="color: rgb(255, 255, 255); font-size: 14px;">
+            {{ request.user.username | upper }}  </b><br> 
+            <small style="font-weight: 600; color: rgba(255, 255, 255, 0.877);font-size: 12px;">
+              {{ request.user.email }}</small>
+        <br><br>
         </center>
-        <a href="#"> About</a>
-        <a href="#">Services</a>
+        <ul style="padding: 0px!important; border-bottom: 1px solid rgba(255, 255, 255, 0.116);">
+          <li id="list">
+            <a href="#"> About</a>
+          </li> 
+        <li id="list">
         <a href="{% url 'payment' %}#last">Payment</a>
+        </li>
+        <li id="list">
         <a href="{% url 'withdraw' %}">Withdrawal</a>
+        </li>
+        <li id="list">
         <a data-toggle="modal" data-target="#modalmail" style="color: white;">Customer care</a>
+        </li>
+        <li id="list">
         <a href="{% url 'trade' %}">Trade</a>
+        </li>
+        <li id="list">
         <a href="{% url 'my_wallets' %}">My Wallets</a>
+        </li>
+        <li id="list">
         <a href="{% url 'logout'%}?next={{ request.path}}">Logout</a>
+          </li>
+      </ul>
       </div>
       
       <span style="cursor:pointer" onclick="openNav()">

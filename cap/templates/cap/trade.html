@@ -12,11 +12,10 @@
   <h5 style="display:inline-block">Trade</h5>
   {% include 'cap/nav/menu.html' %}
 
-</div>
-{% if user.is_authenticated %}
-{% include 'cap/includes/cashbar.html' %}
-    {% endif %}
+</div> 
+{% include 'cap/includes/cashbar.html' %} 
     <div class="mb-4">
     {% include 'cap/includes/cryptos.html' %}
   </div>
+  <br><br>
 {% include 'cap/navicons/trade_active.html' %}

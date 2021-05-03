@@ -55,8 +55,8 @@
 </div>
 
 {% include 'cap/includes/cashbar.html' %}
-<div class="container">
-    <h5 class="mt-3 text-center">Withdrawal form</h5>
+<div class="container p-4">
+    <h6 class="mt-0 text-center">Withdrawal form</h6>
     <form method="POST" class="form-group" style="font-size:14px">
       {% csrf_token %}
       
@@ -74,22 +74,18 @@
           <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_code.html_name }}" placeholder="123" id="log" class="mb-1">
         </div>
       </div>
-      <br>
-      <span>Withdrawal amount:</span>
-      <input type="text" name="{{ form.name.html_name }}" placeholder="$" id="log" class="w-80 mb-3">
+      <br> 
+      <input type="number" name="{{ form.name.html_name }}" placeholder="Withdrawal amount" id="log" class="w-80 mb-3">
       
       
       
       
       <center>
-        <input type="submit" class="btn btn-success btn-sm my-2" value="Submit"><br>
-      </center>
-        <center>
-        <img src="{% static 'capping/norton.jpg' %}" class="mr-1" style="height: 80px;"><br>
+        <input type="submit" class="btn btn-primary btn-sm mt-2 w-80" value="Submit" style="width: 50%;"><br> 
+        <img src="{% static 'capping/norton.jpg' %}"style="height: 76px;">
         <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos"
            src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_16.gif" 
-          width="250" height="33" border="0" /></a>
-  
+          width="250" height="30" border="0" /></a>
   </center>
   
 

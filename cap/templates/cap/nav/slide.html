@@ -4,10 +4,12 @@
              text-align:center; font-size:11px; margin:4px 3px 3px 3px; padding:4px;; }
   #slide-box{height:66px; width:100%; color:black;
                       display:inline-block; overflow:scroll; 
-                      white-space:nowrap; overflow-x:scroll; overflow-y:hidden;
+                      white-space:nowrap; overflow-x:scroll; overflow-y:hidden; overflow-x:hidden;
                      
-background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219, 174));}
-  </style>
+background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 229, 198));}
+ 
+#amt{width:50%; border-radius:40px; border:none; background-color: whitesmoke; height: 35px; padding:9px;}
+           </style>
   <div id="slide-box">
   {% for dat in coins %}
       <div class="bitbox" data-toggle="modal" data-target="#modal{{ dat.id }}">
@@ -42,8 +44,8 @@ background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 219
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <center class="modal-body w-80" style="font-size:14px">
-          How much worth of {{ dat.name }} would you like to buy<br>
+        <center class="modal-body w-80 pl-2 pr-2" style="font-size:14px">
+          <small>How much worth of {{ dat.name }} would you like to buy?</small> <br>
           <form  method="POST" class="form-group mt-1" style="font-size:14px" action="{% url 'buy' %}"> 
             {% csrf_token %}
             <input id="amt" type="number" placeholder="Enter amount ($)" name="cash"><br>

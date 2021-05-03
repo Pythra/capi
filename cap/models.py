@@ -22,10 +22,9 @@ STATUS = (
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     dp = models.ImageField(default='default.jpeg', null=True, blank=True)
-    first_name = models.CharField(max_length=20, blank=True, null=True)
-    last_name = models.CharField(max_length=20, blank=True, null=True)
+    pot = models.PositiveIntegerField(default=0)
     birthday = models.CharField(max_length=20, blank=True, null=True, )
-    job = models.CharField(max_length=20, blank=True, null=True, )
+    plan = models.CharField(max_length=20, blank=True, null=True, )
     balance = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     capital = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     email_confirmed = models.BooleanField(default=False)
@@ -43,6 +42,22 @@ class Profile(models.Model):
         if created:
             profile = Profile(user=user)
             profile.save()
+
+
+class Plans(models.Model):
+    profile = models. ManyToManyField(Profile, related_name='plans', null=True, blank=True)
+    name = models.CharField(max_length=100)
+    amount = models.PositiveIntegerField()
+    daily = models.PositiveIntegerField()
+    weekly = models.PositiveIntegerField()
+    monthly = models.PositiveIntegerField()
+    annually = models.PositiveIntegerField()
+    period = models.TextField(default="1year")
+    tag = models.TextField()
+
+    def __str__(self):
+        return self.name
+
 
 
 class Announcement(models.Model):

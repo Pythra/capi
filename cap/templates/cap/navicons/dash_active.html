@@ -12,12 +12,7 @@
   <i class="fa fa-dollar icon"></i>
 </a> 
   <i class="fa fa-envelope-o icon" data-toggle="modal" data-target="#modalmail"></i>
-    {% if unread %}
-    <span style="width:14px; height:14px;  background-color:red; color:white; left:10px;
-        font-size:10px; border:none; display:inline-block; border-radius:50%; position:absolute;">
-        <center>{{ unread.count }}</center>
-    </span>
-    {% endif %} 
+ 
 <a href="{% url 'my_wallets' %}">
   <img src="{% static 'capping/wallet.svg' %}" class="mb-1" style="height: 25px;">
 </a>

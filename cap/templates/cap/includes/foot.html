@@ -1,55 +1,47 @@
-    
-<footer class="mt-5" style="height:auto;color: white; background-color:black; padding:15px; padding-bottom:25px;">
-    <div style="float:right" class="mb-2">
-          {% if request.user.is_authenticated %}
-            <a href="{% url 'logout'%}?next={{ request.path}}">
-                <span class="navmain btn btn-sm btn-danger">Logout</span>
-            </a>
-          {% else %}
-            <a href="{% url 'signup'%}">
-                <button class="btn btn-sm btn-warning mr-2"><b>Register</b></button>
-            </a>
-            <a href="{% url 'login'%}?next={{ request.path}}"  >
-                <button class="btn btn-sm btn-info">Login</button>
-            </a>
-          {% endif %}
-    </div><br>
+<style>
+    a, a:active{color:black}
+    a:focus, a:hover{color:brown}
+</style>
+<footer class="mt-5" style="height:auto;color: rgb(0, 0, 0); background-color:rgb(255, 244, 220); padding:15px; padding-bottom:25px;">
+ 
     <br>
-    <h6 style="font-weight: 600;">Email Newsletter</h6>
+    <h6 style="font-weight: 600; color: brown;">Email Newsletter</h6>
     <small>
 
     Subscribe to our newsletter!<br>
-    <input placeholder="Email Address" ><a href="{% url 'home' %}"><button>submit</button></a><br><br>
+    <input placeholder="Email Address" style="width: 62%;"
+    ><a href="{% url 'home' %}"><button>Submit</button></a><br><br>
     
     <div class="row">
         <div class="col-6">
-            <h6 style="font-weight: 600; color: yellow;">Our Company</h6>
+            <h6 style="font-weight: 600; color: brown; ">Our Services</h6>
             <span style="font-size: 12px;">
-                About<br>
-                Contact us<br>
-                FAQ<br>
-                Donate<br>
-                Contact Us<br><br>
+                <a href="#sec">Security</a><br>
+                <a href="#cus">Customer service</a><br>
+                <a href="#plans">Packages</a><br>
+                Special Offers<br>
+                <a href="#pay">Payment Methods</a><br>
+                <a href="{% url 'terms' %}">Terms of service</a><br> <br>
             </span> 
-        </div>
-        <div class="col-6">
-            <h6 style="font-weight: 600; color: yellow;">Our Services</h6>
-            <span style="font-size: 12px;">
-                Security<br>
-                Contact us<br>
-                FAQ<br>
-                Donate<br>
-                Contact developer<br><br>
-            </span> 
+         </div>
+         <div class="col-6">
+             <h6 style="font-weight: 600; color: brown;">Our Company</h6>
+             <span style="font-size: 12px;">
+                <a href="#about">About</a><br>
+                 Contact Us<br>
+                 FAQ's<br>
+                 Donate<br>
+                 Contact Developer<br><br>
+             </span> 
          </div>
          </div>
 
 </small>
-
+<br>
     <center>
 
         <small style="font-size: 12px;" class="mt-1">
-            <i class="fa fa-map-marker"></i> Creston, New York, USA<br>
+            <i class="fa fa-map-marker" style="font-size: 13px;"></i> Creston, New York, USA<br>
        
             2021 &#169 Copyright Capital Phoenix
         </small>

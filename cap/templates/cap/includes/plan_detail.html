@@ -1,0 +1,17 @@
+{% include 'cap/nav/nav.html' %}
+<div class="container my-3">
+  <h5 style="display:inline-block">{{ plan | capfirst}} Package</h5>
+  {% include 'cap/nav/menu.html' %}
+
+</div> 
+{% include 'cap/includes/cashbar.html' %}  
+<div class="container">
+  <center>
+ <h6 class="mt-3">Congratulations on purchasing the {{ plan }} package</h6>
+ <hr>
+</center>
+ <ul style="font-size: 13px;">
+ <small class="text-muted">DETAILS</small><br>
+  <li>At the end of each months for the next five months your wallet will be credited with <b>${{ mon }}</b></li>
+ </ul>
+</div>

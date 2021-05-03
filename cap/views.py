@@ -14,7 +14,7 @@ from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.views.generic import View, UpdateView, DeleteView
 
 from .forms import UserRegisterForm, AnnouncementForm, PostForm, WithdrawForm, ProfileForm
-from .models import Profile, Announcement, Comment, Reply, Post, Withdraw, Deposit, Wallet
+from .models import Profile, Announcement, Comment, Reply, Post, Withdraw, Deposit, Wallet, Plans
 from .tokens import account_activation_token
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
@@ -46,11 +46,17 @@ def index(request):
 
     ann = Announcement.objects.all
     posts = Post.objects.all
+    plans = Plans.objects.all
     if request.user.is_authenticated:
         capital = float(request.user.profile.balance)
+        balance = float(request.user.profile.balance)
+        withdraw = 0.8*balance
+        plans = Plans.objects.all
         my_wallets = Wallet.objects.filter(owner=request.user) 
-        context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital,}
-    context = {'ann': ann, 'posts': posts, 'coins': coins,}
+        context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital, 'plans':plans,
+                    'withdraw': withdraw}
+        return render(request, 'cap/index.html', context)
+    context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans, }
     return render(request, 'cap/index.html', context)
 
 
@@ -66,8 +72,7 @@ class SignUpView(View):
         form = self.form_class(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
-            user.is_active = False
-            # Deactivate account till it is confirmed
+            user.is_active = True
             user.save()
 
             current_site = get_current_site(request)
@@ -232,6 +237,7 @@ def trade(request):
     return render(request, 'cap/trade.html', context)
 
 
+@login_required
 def withdraw(request):
     if request.method == 'POST':
         form = WithdrawForm(request.POST)
@@ -256,6 +262,7 @@ def activities(request):
 
 
 
+@login_required
 def buy(request):
     cash =  float(request.POST.get('cash'))
     price = request.POST.get('price')
@@ -267,6 +274,7 @@ def buy(request):
     return render(request, 'cap/buy.html', context)
 
 
+@login_required
 def wallets(request):
     cash =  request.POST.get('cash')
     price = request.POST.get('price')
@@ -289,13 +297,30 @@ def wallets(request):
     return render(request, 'cap/wallets.html', context)
 
 
+@login_required
 def my_wallets(request):
     wallets = Wallet.objects.filter(owner=request.user)
     context = {'wallets':wallets}
     return render(request, 'cap/my_wallets.html', context)
 
 
+def terms(request): 
+    return render(request, 'cap/includes/terms.html')
 
 
+@login_required
+def plan_detail(request): 
+    plan =  request.POST.get('plan')
+    cost =  request.POST.get('cost')
+    mon =  request.POST.get('mon')
+    user = Profile.objects.get(user=request.user)
+    pot = float(user.pot)
+    pot = pot + float(mon)
+    user.balance = float(user.balance) - float(cost)
+    user.pot = pot
+    user.plan = plan
+    user.save() 
+    context = {'plan':plan, 'cost':cost, 'mon':mon}
+    return render(request, 'cap/includes/plan_detail.html', context)
 
 
