@@ -1,4 +1,4 @@
-{% include 'cap/nav/nav.html' %}
+{% load static %}{% include 'cap/nav/nav.html' %}
 <div class="container my-3">
   <h5 style="display:inline-block">{{ plan | capfirst}} Package</h5>
   {% include 'cap/nav/menu.html' %}
@@ -7,11 +7,35 @@
 {% include 'cap/includes/cashbar.html' %}  
 <div class="container">
   <center>
- <h6 class="mt-3">Congratulations on purchasing the {{ plan }} package</h6>
- <hr>
+ <h6 class="mt-3" style="text-transform: capitalize; color: brown;">
+  Congratulations on purchasing the {{ plan }} package!!!
+ </h6>
 </center>
+<hr style="padding-top: 3px !important; margin-top: 3px !important;">
+ <div class="text-muted" style="font-size: 13px;">DETAILS</div> 
  <ul style="font-size: 13px;">
- <small class="text-muted">DETAILS</small><br>
-  <li>At the end of each months for the next five months your wallet will be credited with <b>${{ mon }}</b></li>
- </ul>
+ <li>The cost of this plan which is <b>${{cost}}</b> has been deducted from your wallet.</li>
+<br>
+  <li>At the end of each month for the next five months, your wallet will be credited with <b>${{ earn }}</b>.</li>
+<br>
+  <li>You can purchase the same package multiple times, alongside any other package. Your
+    total earnings will be reflected in the "potential earnings" slot on the dashboard.
+  </li>
+  <br>
+    <li>Your earnings will only be available for withdrawal at the end of the first month.</li>
+  <br>
+  
+    <li>You will be allowed to drop a testimony after your first withdrawal. 
+      Don't forget to put in a good word for us :).</li>
+  <br>
+ 
+
+</ul>
+<p style="height: 10px;">
+    <span style="position:relative; float: right; font-size: 12px;">
+      <small class="text-muted">COURTESY: </small>Capital<img src="{% static 'capping/phyna.svg' %}" style="height: 26px;">Phoenix</span>
+</p>
+<hr>
+ <center><h6 class="mt-2" id="plans">Other Packages</h6></center> 
+ {% include 'cap/includes/plans.html' %} 
 </div>

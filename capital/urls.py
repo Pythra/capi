@@ -25,8 +25,7 @@ urlpatterns = [
     path('', include('cap.urls')),
     path('chat/', include('chat.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-    path('signup/capital/', SignUpView.as_view(), name='signup'),
-    path('activate/<uidb64>/<token>/', ActivateAccount.as_view(), name='activate'),
+    path('', SignUpView.as_view(), name='signup'), 
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -97,7 +97,7 @@
   <div class="col-6">
 <center class="my-1 pull-right" id="my"">
   <small class="grey">Potential earnings</small>
-  <h6 style="font-weight: 600; ">${{request.user.profile.pot}}</h6>
+  <h6 style="font-weight: 600; ">${{request.user.profile.pot | intcomma}}</h6>
 </center>
 </div>
 <div class="col-6">
@@ -110,6 +110,7 @@
 <br>
 <div class="container mt-2">
   
+  <h6 style="font-weight: 600; ">Purchase a package</h6>
   {% include 'cap/includes/plans.html' %}<br>
   
 </div>

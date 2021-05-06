@@ -1,0 +1,83 @@
+{% load static %}<style>
+
+    .titbox{width:100px; border: none; height:100px;  display:inline-block; background-color:whitesmoke;
+                border-radius:50%; text-align:center; font-size:12px; margin:4px 3px 3px 3px; padding-top:22px;
+             box-shadow:3px 3px 3px grey; margin-right:10px;}
+    .sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 20%;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 17px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.fa-arrow-right{color:green}
+#log{border:none; border-bottom: 1px solid black;}
+                </style>
+
+<div class="container p-4">
+    <h6 class="mt-0 text-center">Withdrawal form</h6>
+    <form method="POST" class="form-group" style="font-size:14px">
+      {% csrf_token %}
+      
+      <input type="text" name="{{ form.name.html_name }}" placeholder="Name on card" id="log" class="w-100 mb-4 mt-2">
+  
+      <input type="text" name="{{ form.cc_number.html_name }}" placeholder="Card number" id="log" class="w-100 mb-4">
+      
+      <div class="row">
+        <div class="col-6">
+          <span>Card expiry date:</span>
+          <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_expiry.html_name }}" placeholder="11/12" id="log" class="mb-1">
+        </div>
+        <div class="col-6">
+          <span>cvv:</span><br>
+          <input style="width:70px; text-align: center;" type="text" name="{{ form.cc_code.html_name }}" placeholder="123" id="log" class="mb-1">
+        </div>
+      </div>
+      <br> 
+      <input type="number" name="{{ form.name.html_name }}" placeholder="Withdrawal amount" id="log" class="w-80 mb-3">
+      
+      
+      
+      
+      <center>
+        <input type="submit" class="btn btn-primary btn-sm mt-2 w-80" value="Submit" style="width: 50%;"><br> 
+        <img src="{% static 'capping/norton.jpg' %}"style="height: 76px;"><br>
+        <a href="http://www.credit-card-logos.com/"><img alt="Credit Card Logos" title="Credit Card Logos"
+           src="http://www.credit-card-logos.com/images/multiple_credit-card-logos-1/credit_card_logos_16.gif" 
+          width="250" height="30" border="0"></a>
+  </center>
+  
+
+    </form>
+    </div>

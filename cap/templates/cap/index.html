@@ -22,24 +22,25 @@
 <a id="about">
 {% include 'cap/includes/why.html' %}
 </a>
-<div class="container" style=" ">
+<div class="container mb-2" style=" ">
     <a id="services">
     {% include 'cap/includes/services.html' %}
     </a>
     
 <br> 
         {% include 'cap/includes/get_started.html' %}<hr>
+        <center><h5 class="mt-2" id="plans">Investment Packages</h5></center> 
         {% include 'cap/includes/plans.html' %}<br>
         <hr>
         {% include 'cap/includes/testimonies.html' %}
 </div>
-</div>
+</div><br>
 {% include 'cap/general_post_list.html' %}
-            {% block content %} {% endblock %}
-
-            <br>
+            {% block content %} {% endblock %} 
+           
             <h5 class="ml-3" id="sign">Create an account...</h5>
             {% include 'cap/signup.html' %}
+            <br>
 </body>
         {% include 'cap/includes/foot.html' %}
 

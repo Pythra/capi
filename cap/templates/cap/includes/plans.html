@@ -1,5 +1,4 @@
-
-    <center><h6 class="mt-2" id="plans">Investment Packages</h6></center>   
+  
      <small class="text-muted" style="font-size:12px;">
          PAYMENT: CARD, BITCOIN, ETHEREUM
      </small>
@@ -40,7 +39,7 @@
             <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
             style="color:brown; margin-right:1px ;">$50</b>  
             <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
-            style="color: brown;">5months</b>
+            style="color: brown;">1month</b>
             
         </div>
         <div class="col-4">
@@ -48,7 +47,8 @@
                 {% csrf_token %}
                 <input name="plan" value="bronze" hidden>
                 <input name="cost" value="50" hidden>
-                <input name="mon" value="35" hidden>
+                <input name="earn" value="100" hidden>
+                <input name="time" value="1" hidden>
             <button class="btn btn-sm btn-danger mt-1" style="font-weight:BOLD; color: white; 
              padding: 0 3px 0 3px !important;"> 
                 <small><b>PURCHASE</b></small> 
@@ -60,10 +60,10 @@
                 <li class="list-group-item p-0 pr-2 pl-2 m-1">
                     <small>
                         <span class="pull-left">
-                            Weekly ROI
+                            Monthly ROI
                         </span>
                         <span class="pull-right">
-                            $50.00
+                            $80.00
                         </span>
                     </small>
 
@@ -71,10 +71,10 @@
                 <li class="list-group-item p-0 pr-2 pl-2 m-1">
                     <small>
                         <span class="pull-left">
-                            Monthly ROI
+                            Bonus
                         </span>
                         <span class="pull-right">
-                            $200.00
+                            $20.00
                         </span>
                     </small>
 
@@ -94,24 +94,31 @@
                 <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
                 style="color: grey; margin-right:1px ;">$100</b>  
                 <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
-                style="color: grey;">5months</b>
+                style="color: grey;">1month</b>
                 
             </div>
             <div class="col-4">
-                <button class="btn btn-sm btn-secondary mt-1" 
-                style="font-weight:BOLD;  padding: 0 3px 0 3px !important;">
-                    <small><b>PURCHASE</b></small>
-                </button>
+                <form method="POST" action="{% url 'plan_detail' %}">
+                    {% csrf_token %}
+                    <input name="plan" value="silver" hidden>
+                    <input name="cost" value="100" hidden>
+                    <input name="earn" value="190" hidden>
+                    <input name="time" value="1" hidden>
+                    <button class="btn btn-sm btn-secondary mt-1" 
+                    style="font-weight:BOLD;  padding: 0 3px 0 3px !important;">
+                        <small><b>PURCHASE</b></small>
+                    </button>
+            </form> 
     </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
     <center>
                 <ul class="list-group m-1"> 
                     <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
-                                Weekly ROI
+                                Monthly ROI
                             </span>
                             <span class="pull-right">
-                                $135.00
+                                $160.00
                             </span>
                         </small>
     
@@ -119,10 +126,10 @@
                     <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
-                                Monthly ROI
+                                Bonus
                             </span>
                             <span class="pull-right">
-                                $500.00
+                                $30.00
                             </span>
                         </small>
     
@@ -139,26 +146,34 @@
                 <b style="color: rgb(255, 183, 0);">GOLD</b><br>
                 
                 <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
-                style="color:rgb(255, 183, 0); margin-right:1px ;">$250</b>  
+                style="color:rgb(255, 183, 0); margin-right:1px ;">$300</b>  
                 <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
-                style="color: rgb(255, 183, 0);">5months</b>
+                style="color: rgb(255, 183, 0);">3months</b>
                 
             </div>
             <div class="col-4">
+                <form method="POST" action="{% url 'plan_detail' %}">
+                    {% csrf_token %}
+                    <input name="plan" value="gold" hidden>
+                    <input name="cost" value="300" hidden>
+                    <input name="earn" value="250" hidden>
+                    <input name="time" value="3" hidden>
+                   
                 <button class="btn btn-sm btn-warning mt-1" 
                 style="font-weight:bold; padding: 0 3px 0 3px !important;">
                     <small><b>PURCHASE</b></small>
                 </button>
+            </form> 
             </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
     <center>
                 <ul class="list-group m-1">
                     <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
-                                Weekly ROI
+                                Monthly ROI
                             </span>
                             <span class="pull-right">
-                                $70
+                                $200
                             </span>
                         </small>
     
@@ -166,10 +181,10 @@
                     <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                         <small>
                             <span class="pull-left">
-                                Monthly ROI
+                                Bonus
                             </span>
                             <span class="pull-right">
-                                $2,100
+                                $50
                             </span>
                         </small>
     
@@ -185,27 +200,34 @@
                         <b style="color: rgb(44, 156, 201);">PLATINUM</b><br>
                         
                         <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
-                        style="color: rgb(44, 156, 201); margin-right:1px ;">$500</b>  
+                        style="color: rgb(44, 156, 201); margin-right:1px ;">$750</b>  
                         <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
                         style="color: rgb(44, 156, 201);">5months</b>
                         
                     </div>
                     <div class="col-4">
+                        <form method="POST" action="{% url 'plan_detail' %}">
+                            {% csrf_token %}
+                            <input name="plan" value="platinum" hidden>
+                            <input name="cost" value="750" hidden>
+                            <input name="earn" value="600" hidden>
+                            <input name="time" value="5" hidden>
+                           
                         <button class="btn btn-sm btn-info mt-1" 
                         style="font-weight:bold; padding: 0 3px 0 3px !important;">
                             <small><b>PURCHASE</b></small>
                         </button>
+                    </form> 
             </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
             <center>
                         <ul class="list-group m-1">
-                          
                             <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                                 <small>
                                     <span class="pull-left">
                                         Monthly ROI
                                     </span>
                                     <span class="pull-right">
-                                        $2,100
+                                        $500
                                     </span>
                                 </small>
             
@@ -213,14 +235,14 @@
                             <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                                 <small>
                                     <span class="pull-left">
-                                        Annual ROI
+                                        Bonus
                                     </span>
                                     <span class="pull-right">
-                                        $25,200
+                                        $100
                                     </span>
                                 </small>
             
-                            </li>
+                            </li> 
                         </ul>
                 </div>
                 
@@ -230,37 +252,34 @@
                         <b style="color:rgb(86, 216, 0);">ENTERPRENEUR</b><br>
                         
                         <small style="color: rgb(173, 173, 173); ">PRICE: </small><b 
-                        style="color:rgb(86, 216, 0); margin-right:1px ;">$1000</b>  
+                        style="color:rgb(86, 216, 0); margin-right:1px ;">$1500</b>  
                         <small style="color: rgb(173, 173, 173);">DURATION: </small><b 
                         style="color: rgb(86, 216, 0);">1year</b>
                         
                     </div>
                     <div class="col-4">
+                        <form method="POST" action="{% url 'plan_detail' %}">
+                            {% csrf_token %}
+                            <input name="plan" value="entrepreneur" hidden>
+                            <input name="cost" value="1500" hidden>
+                            <input name="earn" value="1000" hidden>
+                            <input name="time" value="12" hidden>
+                           
                         <button class="btn btn-sm mt-1 btn-success text-light" 
                         style=" font-weight:bold; padding: 0 3px 0 3px !important;">
                             <small><b>PURCHASE</b></small>
                         </button>
+                    </form> 
             </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
             <center>
-                        <ul class="list-group m-1">
-                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
-                                <small>
-                                    <span class="pull-left">
-                                        Weekly ROI
-                                    </span>
-                                    <span class="pull-right">
-                                        $125.00
-                                    </span>
-                                </small>
-            
-                            </li>
+                        <ul class="list-group m-1">  
                             <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                                 <small>
                                     <span class="pull-left">
                                         Monthly ROI
                                     </span>
                                     <span class="pull-right">
-                                        $500.00
+                                        $1000.00
                                     </span>
                                 </small>
             
@@ -272,6 +291,17 @@
                                     </span>
                                     <span class="pull-right">
                                         $6000.00
+                                    </span>
+                                </small>
+            
+                            </li> 
+                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
+                                <small>
+                                    <span class="pull-left">
+                                        Bonus
+                                    </span>
+                                    <span class="pull-right">
+                                        $300.00
                                     </span>
                                 </small>
             
@@ -293,24 +323,21 @@
                         
                     </div>
                     <div class="col-4">
+                        <form method="POST" action="{% url 'plan_detail' %}">
+                            {% csrf_token %}
+                            <input name="plan" value="entrepreneur" hidden>
+                            <input name="cost" value="3000" hidden>
+                            <input name="earn" value="1200" hidden>
+                            <input name="time" value="12" hidden>
+                         
                         <button class="btn btn-sm mt-1 text-light" 
                         style="background-color: red;font-weight:bold; padding: 0 3px 0 3px !important;">
                             <small><b>PURCHASE</b></small>
                         </button>
+                    </form> 
             </div></div><hr style="padding: 3px !important;margin:5px 0 5px 0 !important;">
             <center>
                         <ul class="list-group m-1">
-                            <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
-                                <small>
-                                    <span class="pull-left">
-                                        Weekly ROI
-                                    </span>
-                                    <span class="pull-right">
-                                        $300.00
-                                    </span>
-                                </small>
-            
-                            </li>
                             <li class="list-group-item p-0 pr-2 pl-2 mt-1 mb-1">
                                 <small>
                                     <span class="pull-left">

@@ -60,9 +60,10 @@ def index(request):
     return render(request, 'cap/index.html', context)
 
 
+
 class SignUpView(View):
     form_class = UserRegisterForm
-    template_name = 'cap/signup.html'
+    template_name = 'theseven/signup.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -75,21 +76,10 @@ class SignUpView(View):
             user.is_active = True
             user.save()
 
-            current_site = get_current_site(request)
-            subject = 'Activate Your MySite Account'
-            message = render_to_string('registration/account_activation_email.html', {
-                'user': user,
-                'domain': current_site.domain,
-                'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                'token': account_activation_token.make_token(user),
-            })
-            user.email_user(subject, message)
-
-            messages.success(request, 'Please Confirm your email to complete registration.')
-
             return redirect('login')
 
         return render(request, self.template_name, {'form': form})
+
 
 
 class ActivateAccount(View):
@@ -253,14 +243,7 @@ def withdraw(request):
 def payment(request):
     context = {}
     return render(request, 'cap/payment.html', context)
-
-
-def activities(request):
-    deposits = Deposit.objects.filter(depositor=request.user)
-    context = {'deposits':deposits}
-    return render(request, 'cap/activities.html', context)
-
-
+ 
 
 @login_required
 def buy(request):
@@ -276,6 +259,26 @@ def buy(request):
 
 @login_required
 def wallets(request):
+    url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
+    parameters = {
+        'start': '1',
+        'limit': '12',
+        'convert': 'USD'
+    }
+    headers = {
+        'Accepts': 'application/json',
+        'X-CMC_PRO_API_KEY': '43be9fd4-af5b-4dbe-9379-6f749d993f8d',
+    }
+
+    session = Session()
+    session.headers.update(headers)
+
+    try:
+        response = session.get(url, params=parameters)
+        coins = response.json()['data']
+    except ConnectionError as e:
+        coins = "No response"
+ 
     cash =  request.POST.get('cash')
     price = request.POST.get('price')
     name = request.POST.get('name')
@@ -291,15 +294,18 @@ def wallets(request):
         wallet.total = float(wallet.total) + float(buy)
         wallet.save()
     except Wallet.DoesNotExist:
-        wallet = Wallet.objects.create(owner=request.user, crypto=name, total=buy)
+        wallet = Wallet.objects.create(owner=request.user, crypto=name, total=buy, cost=cash)
         wallet.save()
-    context = {'name':name, 'buy':buy, 'cash':cash, 'price':price, 'wallets':wallets, 'sym':sym, 'bal':bal}
+    context = {'name':name, 'buy':buy, 'cash':cash, 'price':price, 'wallets':wallets, 'sym':sym, 'bal':bal,
+            'coins': coins
+    }
     return render(request, 'cap/wallets.html', context)
 
 
 @login_required
 def my_wallets(request):
     wallets = Wallet.objects.filter(owner=request.user)
+
     context = {'wallets':wallets}
     return render(request, 'cap/my_wallets.html', context)
 
@@ -308,19 +314,24 @@ def terms(request):
     return render(request, 'cap/includes/terms.html')
 
 
+def faq(request): 
+    return render(request, 'cap/includes/faq.html')
+
+
+
 @login_required
 def plan_detail(request): 
     plan =  request.POST.get('plan')
     cost =  request.POST.get('cost')
-    mon =  request.POST.get('mon')
+    earn =  request.POST.get('earn')
     user = Profile.objects.get(user=request.user)
     pot = float(user.pot)
-    pot = pot + float(mon)
+    pot = pot + float(earn)
     user.balance = float(user.balance) - float(cost)
     user.pot = pot
     user.plan = plan
     user.save() 
-    context = {'plan':plan, 'cost':cost, 'mon':mon}
+    context = {'plan':plan, 'cost':cost, 'earn':earn}
     return render(request, 'cap/includes/plan_detail.html', context)
 
 

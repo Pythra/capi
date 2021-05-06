@@ -17,6 +17,7 @@ urlpatterns = [
     path('user/wallets/', views.wallets, name='wallets'),
     path('user/my/wallets/', views.my_wallets, name='my_wallets'),
     path('cryptocurrency/buy/', views.buy, name='buy'),
+    path('FAQ/help/', views.faq, name='faq'),
     path('legal/terms/', views.terms, name='terms'),
     path('package/details/', views.plan_detail, name='plan_detail'),
     ]
