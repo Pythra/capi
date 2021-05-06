@@ -17,11 +17,11 @@ background-image: linear-gradient(to right, rgba(255, 255, 255, 0), rgb(255, 229
       <b><span style="color:rgb(65, 28, 28)">$</span>{{ dat.quote.USD.price | floatformat:2 |intcomma }}</b><br>
           {% if dat.quote.USD.percent_change_1h > 0 %}
           <span style="color:rgb(25, 136, 25);">
-          <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+          <i class="fa fa-arrow-up"></i> {{ dat.quote.USD.percent_change_1h | floatformat:2  }}%
           </span>
           {% else %}
           <span style="color:red;">
-          <i class="fa fa-arrow-down"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+          <i class="fa fa-arrow-down"></i> {{ dat.quote.USD.percent_change_1h | floatformat:2  }}%
           </span>
           {% endif %}
       </div>

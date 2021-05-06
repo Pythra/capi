@@ -16,11 +16,11 @@
            ${{ dat.quote.USD.price | floatformat:2 | intcomma}}<br>
             {% if dat.quote.USD.percent_change_1h > 0 %}
             <span style="color:rgb(25, 136, 25);">
-            <i class="fa fa-arrow-up"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+            <i class="fa fa-arrow-up"></i>{{ dat.quote.USD.percent_change_1h | floatformat:2  }}%
             </span>
             {% else %}
             <span style="color:red;">
-            <i class="fa fa-arrow-down"></i> %{{ dat.quote.USD.percent_change_1h | floatformat:2  }}
+            <i class="fa fa-arrow-down"></i> {{ dat.quote.USD.percent_change_1h | floatformat:2  }}%
             </span>
             {% endif %}</span>
         </div>
