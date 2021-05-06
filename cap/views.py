@@ -63,7 +63,7 @@ def index(request):
 
 class SignUpView(View):
     form_class = UserRegisterForm
-    template_name = 'theseven/signup.html'
+    template_name = 'cap/signup.html'
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
