@@ -1,0 +1,83 @@
+
+{% include 'cap/nav/nav.html' %}
+<center>
+    <a href="{% url 'home' %}">
+        <button class="btn btn-md btn-success mt-1">
+            Switch to Normal User Page
+        </button>
+    </a><br> 
+</center>
+<div class="container">
+<h5 class="my-3">All users</h5>
+<ul class="list-group my-2"> 
+{% for pro in profiles %}
+    <li class="list-group-item">
+        <small>{{pro.id}}.</small>
+        <span style="font-size: 15px; font-weight: 620;"> 
+            {{ pro |capfirst}}
+        </span>
+        <span style="font-size: 13px; color: grey; float:right"> 
+            Joined {{ pro.joined | timesince}} ago
+        </span>
+
+        <br>
+    <p>
+        <small>Capital: ${{ pro.capital }}</small><br>
+        <small>Wallet balance: ${{ pro.balance }}</small><br>
+    </p>
+
+    <div style="font-size: 12px;" class="my-1">
+        <button class=" ">
+            Send email
+        </button>
+        <a href="{% url 'profile_update' pro.id %}">
+          <button>
+              Edit user's details
+          </button>
+        </a>
+        <a href="{% url 'profile_confirm_delete' pro.id %}">
+          <button>
+              Delete account
+          </button>
+        </a>
+    </div>
+
+
+
+  <!-- Modal -->
+  <div class="modal fade w-80" id="modal{{ pro.id }}" tabindex="-1" role="dialog" 
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h6 class="modal-title" id="exampleModalLongTitle">
+            Edit {{ pro | capfirst }}'s account
+
+          </h6>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>  
+        <center class="modal-body w-80 pl-2 pr-2" style="font-size:14px"> 
+            <form method="POST" class=" container form-group"  enctype="multipart/form-data"
+             style="font-size:14px" action="{% url 'admin' %}">
+              {% csrf_token %}
+              {{ p_form.as_p }}<br>
+              <input type="submit" class="btn btn-info btn-sm" value="Save changes">
+            </form>
+       
+        </center>
+        
+      </div>
+    </div>
+  </div>
+</li>
+  {% endfor %}
+  </ul>
+  </div>
+
+
+
+
+
+

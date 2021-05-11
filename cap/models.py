@@ -20,10 +20,8 @@ STATUS = (
 
 
 class Profile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
-    dp = models.ImageField(default='default.jpeg', null=True, blank=True)
-    pot = models.PositiveIntegerField(default=0)
-    birthday = models.CharField(max_length=20, blank=True, null=True, )
+    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True) 
+    pot = models.PositiveIntegerField(default=0, null=True,) 
     plan = models.CharField(max_length=20, blank=True, null=True, )
     balance = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     capital = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)

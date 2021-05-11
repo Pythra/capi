@@ -14,7 +14,17 @@
 
 {% if user.is_authenticated %}
 
-    {% include 'cap/feed.html' %}
+{% if user.is_superuser %} 
+<center>
+        <a href="{% url 'admin' %}">
+                <button class="btn btn-md btn-danger mt-1">
+                        Switch to Admin Page
+                </button>
+        </a><br><small>(Only admins can see this button)</small>
+</center>
+{% endif %}
+
+    {% include 'cap/feed.html' %} 
 
 {% else %}
 {% include 'cap/nav/inslide.html' %}

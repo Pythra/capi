@@ -21,15 +21,9 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = (
-             'dp', 'balance'
+             'capital', 'balance',
         )
-
-        widgets = {
-            'first_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'first_name'}),
-            'last_name': TextInput(attrs={'class': 'form-control', 'placeholder': 'last_name'}),
-            'job': TextInput(attrs={'class': 'form-control'}),
-        }
-
+ 
 
 class UserRegisterForm(UserCreationForm):
     class Meta:

@@ -1,0 +1,11 @@
+
+{% include 'cap/nav/nav.html' %}
+<div class="container mt-2">
+  <h5>Delete {{profile | capfirst}}'s Account</h5>
+
+<p>Are you sure you want to delete this account?</p>
+
+<form action="" method="POST">
+  {% csrf_token %}
+  <input type="submit" class="btn btn-danger" value="Yes, delete.">
+</form> </div>

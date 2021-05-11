@@ -23,6 +23,7 @@ import json
 from chat.models import Message
 
 
+
 def index(request):
     url = 'https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest'
     parameters = {
@@ -55,15 +56,16 @@ def index(request):
         my_wallets = Wallet.objects.filter(owner=request.user) 
         context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital, 'plans':plans,
                     'withdraw': withdraw}
-        return render(request, 'cap/index.html', context)
-    context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans, }
+        return render(request, 'cap/index.html', context) 
+ 
+    context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans }
     return render(request, 'cap/index.html', context)
-
 
 
 class SignUpView(View):
     form_class = UserRegisterForm
     template_name = 'cap/signup.html'
+    
 
     def get(self, request, *args, **kwargs):
         form = self.form_class()
@@ -79,7 +81,6 @@ class SignUpView(View):
             return redirect('login')
 
         return render(request, self.template_name, {'form': form})
-
 
 
 class ActivateAccount(View):
@@ -333,5 +334,29 @@ def plan_detail(request):
     user.save() 
     context = {'plan':plan, 'cost':cost, 'earn':earn}
     return render(request, 'cap/includes/plan_detail.html', context)
+
+
+@login_required
+def admin(request):
+    profiles = Profile.objects.all().order_by('-joined')
+
+    context = { 'profiles':profiles
+        }
+    return render(request, 'cap/admin.html', context)
+
+
+class ProfileUpdate(UpdateView, LoginRequiredMixin):
+    template_name = 'cap/profile_update.html'
+    model = Profile
+    form_class = ProfileForm
+    success_url = reverse_lazy('admin')
+
+
+class ProfileDelete(DeleteView, LoginRequiredMixin):
+    model = Profile
+    success_url = reverse_lazy('admin')
+
+
+
 
 
