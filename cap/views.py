@@ -49,13 +49,16 @@ def index(request):
     posts = Post.objects.all
     plans = Plans.objects.all
     if request.user.is_authenticated:
+        user = Profile.objects.get(user=request.user)
         capital = float(request.user.profile.balance)
         balance = float(request.user.profile.balance)
+        pot = float(user.pot)
+        com = float(request.user.profile.commission)
         withdraw = 0.8*balance
         plans = Plans.objects.all
         my_wallets = Wallet.objects.filter(owner=request.user) 
         context = {'ann': ann, 'posts': posts, 'coins': coins, 'capital': capital, 'plans':plans,
-                    'withdraw': withdraw}
+                    'withdraw': withdraw, 'com':com}
         return render(request, 'cap/index.html', context) 
  
     context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans }

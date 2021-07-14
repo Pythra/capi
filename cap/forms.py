@@ -21,7 +21,7 @@ class ProfileForm(forms.ModelForm):
     class Meta:
         model = Profile
         fields = (
-             'capital', 'balance',
+             'capital', 'balance','commission'
         )
  
 

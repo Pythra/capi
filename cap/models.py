@@ -23,8 +23,9 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True) 
     pot = models.PositiveIntegerField(default=0, null=True,) 
     plan = models.CharField(max_length=20, blank=True, null=True, )
-    balance = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
+    balance = models.DecimalField(default=10.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     capital = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
+    commission = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, blank=True, null=True,)
     email_confirmed = models.BooleanField(default=False)
     joined = models.DateTimeField(auto_now_add=True)
 
