@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '1c=kth85omw4a7h3_dgn#%3nhk9#)&m5+-j3kpg1(5$$3*w93k'
 DEBUG = True
 
-ALLOWED_HOSTS = ['capitalphoenix.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['capitalphoenix.herokuapp.com', 'localhost', 'www.capitalfinesse.com']
 # Application definition
 
 
