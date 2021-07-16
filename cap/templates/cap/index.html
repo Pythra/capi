@@ -74,11 +74,12 @@
                 <small style="font-size: 11px;color: grey; display: block; line-height:1.3em;" id="you">
                     Already have an account?
                 </small>
+                <a href="{% url 'login' %}">
                  <input type="submit" class="btn btn-sm btn-dark w-100 mb-2" style="
                  font-weight: 700; 
                  " value="Login"><br>
                <input type="hidden" name="next" value="{{ next }}">
-
+</a>
                </div>
                
                </div>
