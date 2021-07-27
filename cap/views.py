@@ -65,7 +65,7 @@ def index(request):
     context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans }
     return render(request, 'cap/index.html', context)
 
-@method_decorator(crsf_exempt, name='dispatch')
+@method_decorator(csrf_exempt, name='dispatch')
 class SignUpView(View):
     form_class = UserRegisterForm
     template_name = 'cap/signup.html'
