@@ -13,8 +13,8 @@ from django.utils.encoding import force_text, force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
 from django.views.generic import View, UpdateView, DeleteView
 
-from .forms import UserRegisterForm, AnnouncementForm, PostForm, WithdrawForm, ProfileForm
-from .models import Profile, Announcement, Comment, Reply, Post, Withdraw, Deposit, Wallet, Plans
+from .forms import UserRegisterForm, AnnouncementForm, PostForm, ProfileForm
+from .models import Profile, Announcement, Comment, Reply, Post, Deposit, Wallet, Plans
 from .tokens import account_activation_token
 from requests import Request, Session
 from requests.exceptions import ConnectionError, Timeout, TooManyRedirects
