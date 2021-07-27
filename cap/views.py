@@ -231,18 +231,6 @@ def trade(request):
     return render(request, 'cap/trade.html', context)
 
 
-@login_required
-def withdraw(request):
-    if request.method == 'POST':
-        form = WithdrawForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponseRedirect(reverse('home'))
-    else:
-        form = WithdrawForm()
-    context = {'form': form}
-    return render(request, 'cap/withdraw.html', context)
-
 
 def payment(request):
     context = {}
