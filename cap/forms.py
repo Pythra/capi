@@ -2,7 +2,7 @@
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
 from django.forms import Textarea, TextInput, EmailInput, NumberInput, FileInput, DateTimeInput
-from .models import Profile, Announcement, Comment, Reply, Post, Withdraw
+from .models import Profile, Announcement, Comment, Reply, Post 
 from django import forms 
 
  
