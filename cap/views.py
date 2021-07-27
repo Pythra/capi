@@ -11,9 +11,7 @@ from django.template.loader import render_to_string
 from django.urls import reverse, reverse_lazy
 from django.utils.encoding import force_text, force_bytes
 from django.utils.http import urlsafe_base64_decode, urlsafe_base64_encode
-from django.views.generic import View, UpdateView, DeleteView
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
+from django.views.generic import View, UpdateView, DeleteView  
 from .forms import UserRegisterForm, AnnouncementForm, PostForm, ProfileForm
 from .models import Profile, Announcement, Comment, Reply, Post, Deposit, Wallet, Plans
 from .tokens import account_activation_token
@@ -64,8 +62,7 @@ def index(request):
  
     context = {'ann': ann, 'posts': posts, 'coins': coins, 'plans':plans }
     return render(request, 'cap/index.html', context)
-
-@method_decorator(csrf_exempt, name='dispatch')
+ 
 class SignUpView(View):
     form_class = UserRegisterForm
     template_name = 'cap/signup.html'

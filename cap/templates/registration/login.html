@@ -22,7 +22,7 @@
           Capital<img src="{% static 'capping/phyna.svg' %}" style="height: 26px;">Finesse</span>
       </p> 
 <form method="post" action="{% url 'login' %}" class="form-group" >
-  
+  {% csrf_token %}
   <br>
     <input placeholder="{{ form.username.html_name }}" id="login" class="{% if forloop.last %}mt-4{% endif %} w-100"
            type="text" name="{{ form.username.html_name }}">

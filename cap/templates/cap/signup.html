@@ -25,6 +25,7 @@
 <center>
 <div id="loginbox" class="mt-2 p-4">
 <form method="post">
+    {% csrf_token %}
 
     <input type="text" name="{{ form.username.html_name }}" placeholder="{{ form.username.html_name }}" id="bogin" class="w-100 mt-2">
     <input type="text" name="{{ form.email.html_name }}" placeholder="{{ form.email.html_name }}" id="bogin" class="mt-4 w-100">
@@ -32,6 +33,7 @@
     <input type="password" name="{{ form.password2.html_name }}" placeholder="confirm password" id="bogin" class="mt-4 w-100">
 
     <div class="text-center mt-3">
+        <small class="text-muted">REFERAL ID: 231CPT</small>
    <a href="{% url 'signup' %}">
        <button type="submit" 
        class="btn btn-sm w-100 mb-1" style="background-color:bisque; font-weight: 700;">

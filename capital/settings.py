@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECRET_KEY =  '1c=kth85omw4a7h3_dgn#%3nhk9#)&m5+-j3kpg1(5$$3*w93k'
 SECRET_KEY = '1c=kth85omw4a7h3_dgn#%3nhk9#)&m5+-j3kpg1(5$$3*w93k'
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['capitalphoenix.herokuapp.com', 'localhost', 'www.capitalfinesse.com']
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware', 
+    'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -131,6 +132,4 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
-
-SESSION_COOKIE_SECURE = True
-CSRF_COOKIE_SECURE = True
+ 
